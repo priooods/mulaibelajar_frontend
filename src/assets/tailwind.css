@@ -3,3 +3,30 @@
 @tailwind components;
 
 @tailwind utilities;
+
+@layer base{
+  @font-face {
+    font-family: HasRoman;
+    src: url('./font/NeueHaasDisplayRoman.woff') format('woff');
+  }
+  @font-face {
+    font-family: HasMedium;
+    src: url('./font/NeueHaasDisplayMediu.woff') format('woff');
+  }
+  @font-face {
+    font-family: HasBlack;
+    src: url('./font/NeueHaasDisplayBlack.woff') format('woff');
+  }
+  @font-face {
+    font-family: HasBold;
+    src: url('./font/NeueHaasDisplayBold.woff') format('woff');
+  }
+  @font-face {
+    font-family: HasLight;
+    src: url('./font/NeueHaasDisplayLight.woff') format('woff');
+  }
+  @font-face {
+    font-family: HasThin;
+    src: url('./font/NeueHaasDisplayThin.woff') format('woff');
+  }
+}
