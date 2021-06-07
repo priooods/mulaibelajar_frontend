@@ -7,7 +7,8 @@ import "vue-awesome/icons";
 import "./assets/tailwind.css";
 import VueMeta from "vue-meta";
 import Icon from "vue-awesome/components/Icon";
-
+import VueCookies from "vue-cookies";
+Vue.use(VueCookies);
 Vue.component("v-icon", Icon);
 Vue.use(VueMeta, { refreshOnceOnNavigation: true });
 

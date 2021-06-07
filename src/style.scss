@@ -1,4 +1,39 @@
 $orange-bold: #ff6701;
-$orang: #fea82f;
-$orang-low: #ffc288;
-$orang-verylow: #fcecdd;
+$orange: #fea82f;
+$orange-low: #ffc288;
+$orange-verylow: #fcecdd;
+$text-light: #374151;
+$bg-dark: #111827;
+$indigo-600: #4F46E5;
+$indigo-400: #818CF8;
+
+#app.light-theme{
+    color: $text-light;
+    background: white;
+    .bg-primary{
+        background: white;
+    }
+    .text-type{
+        color: $indigo-600;
+    }
+}
+
+#app.dark-theme{
+    color: white;
+    background: $bg-dark;
+    .bg-primary{
+        background: $bg-dark;
+    }
+    .text-type{
+        color: $indigo-400;
+    }
+}
+::-webkit-scrollbar{
+    width: 3px;
+    border-radius: 50%;
+}
+::-webkit-scrollbar-thumb{
+    opacity: 0.5;
+    background: $indigo-600;
+    cursor: grab;
+}
