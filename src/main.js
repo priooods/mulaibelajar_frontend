@@ -5,6 +5,7 @@ import store from './store'
 import "vue-awesome/icons/flag";
 import "vue-awesome/icons";
 import "./assets/tailwind.css";
+import "locomotive-scroll/dist/locomotive-scroll.min.css";
 import VueMeta from "vue-meta";
 import Icon from "vue-awesome/components/Icon";
 import VueCookies from "vue-cookies";
