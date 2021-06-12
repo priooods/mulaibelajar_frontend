@@ -28,10 +28,25 @@ export default {
     this.refresh = true;
   },
   mounted() {
-    this.scl;
+    this.animasiScroll();
   },
   destroyed() {
     this.scl.destroy();
     this.scl.start();
+  },
+  methods: {
+    animasiScroll() {
+      return new LocomotiveScroll({
+        el: document.querySelector("[data-scroll-container]"),
+        smooth: true,
+        repeat: true,
+        smartphone: {
+          smooth: true,
+        },
+        getSpeed: true,
+        resetNativeScroll: true,
+        getDirection: true,
+      });
+    },
   },
 };

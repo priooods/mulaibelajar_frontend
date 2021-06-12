@@ -6,7 +6,7 @@
                   <router-link to="/">
                     <h1 class="text-xl my-auto font-hasbold cursor-pointer">Mulai Belajar</h1>
                   </router-link>
-                  <div class="inline-flex my-auto ml-auto">
+                  <div class="md:inline-flex my-auto ml-auto hidden">
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Kelas</h5>
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Biaya Belajar</h5>
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Komunitas</h5>
@@ -17,23 +17,74 @@
                     <v-icon name="sun" class="cursor-pointer text-yellow-300" @click="changeTheme('light-theme')"  v-if="theme == 1"/>
                   </div>
                   <div class="md:hidden block ml-auto my-auto">
-                      <v-icon name="bars" class="cursor-pointer"/>
+                      <v-icon name="bars" class="cursor-pointer icons"/>
                   </div>
               </div>
           </div>
       </div>
+      <div class="min-h-screen bg-boxs md:hidden fixed z-20 xs:-left-96 -left-full w-full layer-menu bg-nav bg-menu">
+            <div class="text-xs mt-3 ml-3 menu-mobile">
+                <div class="flex justify-end mr-5 mb-5">
+                    <div class="mt-auto mr-5">
+                        <v-icon name="moon" class="cursor-pointer" @click="changeTheme('dark-theme')"  v-if="theme == 0"/>
+                        <v-icon name="sun" class="cursor-pointer text-yellow-300" @click="changeTheme('light-theme')"  v-if="theme == 1"/>
+                    </div>
+                    <v-icon name="times" class="cursor-pointer icons"/>
+                </div>
+                <router-link to="/" class="closed flex" exact>
+                    <p class="font-hasbold text-3xl my-auto">Home</p>
+                    <div class="rounded-full my-auto ml-4 h-2 w-2 opacity-0"></div>
+                </router-link>
+                <router-link to="/" class="closed flex mt-3">
+                    <p class="font-hasbold text-3xl my-auto">Kelas</p>
+                    <div class="rounded-full my-auto ml-4 h-2 w-2 opacity-0"></div>
+                </router-link>
+                <router-link to="/" class="closed flex mt-3">
+                    <p class="font-hasbold text-3xl my-auto">Biaya Belajar</p>
+                    <div class="rounded-full my-auto ml-4 h-2 w-2 opacity-0"></div>
+                </router-link>
+                <router-link to="/" class="closed flex mt-3">
+                    <p class="font-hasbold text-3xl my-auto">Komunitas</p>
+                    <div class="rounded-full my-auto ml-4 h-2 w-2 opacity-0"></div>
+                </router-link>
+                <router-link to="/" class="closed flex mt-3">
+                    <p class="font-hasbold text-3xl my-auto">Tips</p>
+                    <div class="rounded-full my-auto ml-4 h-2 w-2 opacity-0"></div>
+                </router-link>
+            </div>
+        </div>
   </div>
 </template>
 
 <script>
+import { Expo, TimelineMax } from "gsap";
+import $ from 'jquery';
 export default {
     name: "Navigasi",
     props:{
         theme: Number
     },
+    mounted() {
+        this.menumobileanim();
+    },
     methods:{
         changeTheme(value){
             this.$emit('ubahtema', value);
+        },
+        menumobileanim(){
+            const tl = new TimelineMax({paused: true});
+            tl.to('.layer-menu', 1, { left: '0%', ease: Expo.easeInOut});
+            tl.staggerFrom(".layer-menu .menu-mobile .closed",1,{ opacity: 0, x: -250, ease: Expo.easeOut }, 0.3);
+            tl.reverse();
+            $(document).on('click',".navigasi .icons", function(){
+                tl.reversed(!tl.reversed());
+            });
+            $(document).on('click',".navigasi .title", function(){
+                tl.reversed(!tl.reversed());
+            });
+            $(document).on('click',".menu-mobile .closed", function(){
+                tl.reversed(!tl.reversed());
+            });
         },
     }
 }

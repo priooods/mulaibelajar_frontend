@@ -1,5 +1,5 @@
 <template>
-  <div class="home" data-scroll-container>
+  <div class="home layout" data-scroll-container>
     <section class="h-screen max-h-screen w-full flex justify-center items-center" data-scroll-section>
       <div class="text-center" data-scroll>
         <h2 class="font-hasbold md:text-5xl text-3xl">Mulai Belajar Bersama.</h2>
@@ -16,32 +16,32 @@
         <h2 class="font-hasmedium text-4xl text-white" data-scroll>Pembelajaran kelas dunia untuk siapa saja, di mana saja</h2>
         <div class="mt-16 md:flex justify-center" data-scroll>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:w-5/6 w-full">
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_studikasus.svg" alt="studi_kasus" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Studi Kasus</h4>
               <h6 class="font-hasroman text-base text-white">Kita akan membedah bersama semua ilmu pengetahuan secara langsung</h6>
             </div>
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_access.svg" alt="access" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Lifetime Access</h4>
               <h6 class="font-hasroman text-base text-white">Mempelajari dan memahami materi kelas lebih santai tanpa batasan waktu</h6>
             </div>
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_konsultasi.svg" alt="konsultasi" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Konsultasi</h4>
               <h6 class="font-hasroman text-base text-white">Gabung dengan private group untuk berkonsultasi dengan mentor kelas</h6>
             </div>
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_bahasa.svg" alt="lokal" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">#ProdukLokal</h4>
               <h6 class="font-hasroman text-base text-white">Materi dibuat langsung oleh para kreator di negara Indonesia</h6>
             </div>
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_flag.svg" alt="sertifikat" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Live Learning</h4>
               <h6 class="font-hasroman text-base text-white">Belajar semua hal yang kamu mau secara tatap muka langsung dengan para mentor</h6>
             </div>
-            <div class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
+            <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
               <img src="../assets/image/ic_sertifikat.svg" alt="sertifikat" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Bersertifikat Resmi</h4>
               <h6 class="font-hasroman text-base text-white">Selesaikan kelas dan projek dan dapatkan sertifikat dari kami</h6>
@@ -50,18 +50,21 @@
         </div>
       </div>
     </section>
-    <section id="sectionPin" data-scroll-section>
-      <div class="pin-wrap grid grid-cols-1 md:grid-cols-2 gap-2 justify-start items-center w-auto min-w-full h-screen min-h-screen py-20" data-scroll>
-        <div class="md:ml-10">
-          <div class="font-hasbold md:text-6xl text-base">
-            <h2>Mulai belajar</h2>
-            <h2>Sekarang Juga</h2>
-          </div>
-          <p class="mt-6 font-hasroman text-base">Lihat semua kelas yang tersedia</p>
+    <section>
+      <KelasBelajar :view="false"></KelasBelajar>
+    </section>
+    <section class="h-auto py-32 flex justify-center items-center" data-scroll-section>
+      <div class="text-center" data-scroll>
+        <h2 class="font-hasbold md:text-5xl text-3xl">Mulai Belajar Sekarang</h2>
+        <h6 class="font-hasmedium md:text-xl text-base mt-1 md:mt-2">Belajar apa saja tanpa batas. dimanapun dan kapanpun</h6>
+        <div class="w-auto text-center md:mt-20 mt-14" data-scroll data-scroll-speed="-1">
+          <button class="border py-2 px-6 rounded-xl text-center font-hasbold cursor-pointer hover:bg-indigo-500 hover:text-white shadow-sm hover:shadow-lg">Daftar Sekarang</button>
         </div>
       </div>
     </section>
-    <FooterWeb></FooterWeb>
+    <section>
+      <FooterWeb></FooterWeb>
+    </section>
   </div>
 </template>
 
@@ -69,8 +72,9 @@
 import LocomotiveScroll from '@/plugin/locomotive.js';
 import TypeIt from "typeit";
 import FooterWeb from '../components/FooterWeb.vue';
+import KelasBelajar from '../components/KelasBelajar.vue';
 export default {
-  components: {FooterWeb},
+  components: {FooterWeb, KelasBelajar},
   mixins: [LocomotiveScroll],
   name: 'Home',
   mounted() {

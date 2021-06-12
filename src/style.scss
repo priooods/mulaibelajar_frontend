@@ -4,8 +4,10 @@ $orange-low: #ffc288;
 $orange-verylow: #fcecdd;
 $text-light: #374151;
 $bg-dark: #111827;
+$bg-dark-content: #192130;
 $indigo-600: #4F46E5;
 $indigo-400: #818CF8;
+$indigo-500: #6366F1;
 
 #app.light-theme{
     color: $text-light;
@@ -15,6 +17,9 @@ $indigo-400: #818CF8;
     }
     .text-type{
         color: $indigo-600;
+    }
+    .bg-boxs{
+        background: white;
     }
 }
 
@@ -26,6 +31,12 @@ $indigo-400: #818CF8;
     }
     .text-type{
         color: $indigo-400;
+    }
+    .bg-boxs{
+        background: $bg-dark-content;
+    }
+    .border{
+        border-color: $bg-dark-content;
     }
 }
 ::-webkit-scrollbar{
