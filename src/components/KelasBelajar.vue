@@ -1,7 +1,7 @@
 <template>
   <div class="kelas">
       <div class="w-full h-auto md:py-20 py-10" data-scroll-section>
-        <div data-scroll class="md:pl-20" data-scroll-direction="horizontal" data-scroll-speed="2">
+        <div data-scroll class="md:pl-20 pl-2" data-scroll-direction="horizontal" data-scroll-speed="2">
             <p class="font-hasmedium md:text-base text-sm md:mb-2 mb-1">Mulai Belajar Sekarang</p>
             <h2 class="font-hasbold md:text-5xl text-3xl">Pilih kelas yang <br> ingin kamu pelajari</h2>
         </div>
