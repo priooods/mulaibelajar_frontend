@@ -10,6 +10,7 @@
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Kelas</h5>
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Biaya Belajar</h5>
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Komunitas</h5>
+                      <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Diskusi Bareng</h5>
                       <h5 class="text-base font-hasbold cursor-pointer md:ml-10 hover:text-indigo-600">Tips</h5>
                   </div>
                   <div class="ml-auto my-auto md:block hidden">

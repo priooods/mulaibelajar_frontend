@@ -31,7 +31,7 @@
                     <span class="font-hasmedium">Very Beginner</span> sampai <span class="font-hasmedium">Advance</span></p>
             </div>
             <div class="bg-boxs  rounded-lg kelas-item text-left border shadow-lg py-14 px-8 cursor-pointer" data-scroll>
-                <h2 class="font-hasbold text-4xl">Sastra</h2>
+                <h2 class="font-hasbold text-4xl">Bahasa Indonesia</h2>
                 <p class="mt-4 font-hasroman text-sm">
                     Kata orang bijak, kalau kita menguasai bahasa kita bisa menguasai dunia. Sastra adalah cara kita berkomunikasi dengan siapa saja dimana saja 
                 </p>
@@ -42,6 +42,14 @@
                 <h2 class="font-hasbold text-4xl">Biologi</h2>
                 <p class="mt-4 font-hasroman text-sm">
                     Kenalan dengan semua makhluk hidup yang ada di bumi dengan Biologi. Biologi membuat kita lebih dekat dengan semua makhluk hidup di bumi.  
+                </p>
+                <p class="mt-5 font-hasroman">Tersedia mulai dari jenjang 
+                    <span class="font-hasmedium">Sekolah Dasar</span> sampai <span class="font-hasmedium">Sekolah Menengah Atas</span></p>
+            </div>
+            <div class="bg-boxs rounded-lg kelas-item text-left border shadow-lg py-14 px-8 cursor-pointer" data-scroll>
+                <h2 class="font-hasbold text-4xl">Bahasa Inggris</h2>
+                <p class="mt-4 font-hasroman text-sm">
+                    Kata orang bijak, kalau kita menguasai bahasa kita bisa menguasai dunia. Sastra adalah cara kita berkomunikasi dengan siapa saja dimana saja.  
                 </p>
                 <p class="mt-5 font-hasroman">Tersedia mulai dari jenjang 
                     <span class="font-hasmedium">Sekolah Dasar</span> sampai <span class="font-hasmedium">Sekolah Menengah Atas</span></p>

@@ -4,8 +4,8 @@
       <img src="../assets/image/learn2.svg" alt="home_learn2" data-scroll class="md:h-auto md:block hidden w-full md:w-auto">
       <div class="md:absolute left-0 bottom-52 right-0 text-center" data-scroll>
         <img src="../assets/image/learn.svg" alt="home_learn" data-scroll class="md:h-auto md:hidden block w-full md:w-auto">
-        <h2 class="font-hasbold md:text-5xl text-3xl">Mulai Belajar Bersama.</h2>
-        <h2 class="font-hasbold md:text-5xl text-3xl md:mt-3">Perluas Wawasan Anda.</h2>
+        <h2 class="font-hasbold md:text-6xl text-3xl">Mulai Belajar</h2>
+        <h2 class="md:text-3xl text-2xl md:mt-3 tageline">Belajar Mudah Dimana Aja</h2>
         <div class="md:flex w-full justify-center md:mt-0 mt-8 text-center">
           <h5 class="font-hasmedium mt-auto text-lg md:text-xl">Platform belajar online tanpa batas.</h5>
           <h5 class="font-hasmedium mt-auto text-lg md:text-xl md:ml-2">Mulai Belajar</h5>
@@ -15,7 +15,7 @@
     </section>
     <section class="bg-indigo-600 py-32 w-full" data-scroll-section>
       <div class="w-full text-center md:px-0 px-3">
-        <h2 class="font-hasbold md:text-4xl text-3xl text-white" data-scroll>Pembelajaran kelas dunia untuk siapa saja, di mana saja</h2>
+        <h2 class="font-hasbold md:text-5xl text-3xl text-white" data-scroll>Cari Tau Keunggulan Mulai Belajar</h2>
         <div class="mt-16 md:flex justify-center" data-scroll>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:w-5/6 w-full">
             <div data-scroll class="text-left p-7 rounded-lg bg-indigo-500 hover:shadow-2xl shadow-md">
@@ -52,6 +52,9 @@
         </div>
       </div>
     </section>
+    <section >
+      <KelasBelajar :view="false"></KelasBelajar>
+    </section>
     <section data-scroll-section class="mt-11">
       <div class="md:h-screen md:min-h-screen md:grid grid-cols-1 md:grid-cols-2 md:container md:mx-auto md:py-16 md:px-0 px-2 items-center">
         <div data-scroll>
@@ -80,21 +83,21 @@
     <section data-scroll-section class="md:mt-11 mt-24">
       <div class="h-screen min-h-screen md:grid grid-cols-1 md:gap-12 gap-6 md:grid-cols-3 md:container md:mx-auto md:py-16 md:px-0 px-2 items-center">
         <div data-scroll>
-          <img src="../assets/image/personal.svg" alt="personal" class="md:h-3/6 md:w-3/6 h-2/6 w-2/6">
+          <img src="../assets/image/personal.svg" alt="personal" class="md:h-5/12 md:w-5/12 h-2/6 w-2/6">
           <div class="md:mt-5 mt-3">
             <h6 class="font-hasmedium text-xl md:text-2xl">Belajar dengan cepat dan tepat</h6>
             <p class="font-hasroman md:mt-3 mt-1 text-sm md:text-base">Anda dapat mengejar atau maju dengan mudah dalam belajar, karena anda akan belajar lebih dalam dengan tepat.</p>
           </div>
         </div>
         <div data-scroll class="md:mt-0 mt-4">
-          <img src="../assets/image/curicullum.svg" alt="personal" class="md:h-3/6 md:w-3/6 h-2/6 w-2/6">
+          <img src="../assets/image/curicullum.svg" alt="personal" class="md:h-5/12 md:w-5/12 h-2/6 w-2/6">
           <div class="md:mt-5 mt-3">
             <h6 class="font-hasmedium text-xl md:text-2xl">Kurikulum yang disesuaikan</h6>
             <p class="font-hasroman md:mt-3 mt-1 text-sm md:text-base">Kursus studi kami disesuaikan dengan kurikulum masing-masing wilayah sehingga mereka mempelajari apa yang mereka butuhkan.</p>
           </div>
         </div>
         <div data-scroll class="md:mt-0 mt-4">
-          <img src="../assets/image/made_learn.svg" alt="personal" class="md:h-3/6 md:w-3/6 h-2/6 w-2/6">
+          <img src="../assets/image/made_learn.svg" alt="personal" class="md:h-4/12 md:w-4/12 h-2/6 w-2/6">
           <div class="md:mt-5 mt-3">
             <h6 class="font-hasmedium text-xl md:text-2xl">Dibuat untuk Belajar</h6>
             <p class="font-hasroman md:mt-3 mt-1 text-sm md:text-base">Kami tidak hanya memberikan jawaban, kami membimbing siswa dari semua tingkatan ke pemahaman dasar.</p>
@@ -102,9 +105,9 @@
         </div>
       </div>
     </section>
-    <section >
+    <!-- <section >
       <KelasBelajar :view="false"></KelasBelajar>
-    </section>
+    </section> -->
     <section class="h-auto py-32 flex justify-center items-center" data-scroll-section>
       <div class="text-center" data-scroll>
         <h2 class="font-hasbold md:text-5xl text-3xl">Mulai Belajar Sekarang</h2>
@@ -156,3 +159,11 @@ export default {
   },
 }
 </script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
+
+.tageline{
+  font-family: 'Dancing Script', cursive;
+  font-weight: 700;
+}
+</style>
