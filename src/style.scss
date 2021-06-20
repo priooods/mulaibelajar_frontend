@@ -21,6 +21,10 @@ $indigo-500: #6366F1;
     .bg-boxs{
         background: white;
     }
+    .bg-boxs:hover{
+        background: $indigo-400;
+        color: white;
+    }
 }
 
 #app.dark-theme{
@@ -34,6 +38,10 @@ $indigo-500: #6366F1;
     }
     .bg-boxs{
         background: $bg-dark-content;
+    }
+    .bg-boxs:hover{
+        background: $indigo-400;
+        color: white;
     }
     .border{
         border-color: $bg-dark-content;

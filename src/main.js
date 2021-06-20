@@ -12,9 +12,7 @@ import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 Vue.component("v-icon", Icon);
 Vue.use(VueMeta, { refreshOnceOnNavigation: true });
-
-Vue.config.productionTip = false
-
+Vue.config.productionTip = false;
 new Vue({
   router,
   store,

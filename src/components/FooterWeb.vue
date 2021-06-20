@@ -4,7 +4,7 @@
             <div class="grid md:grid-cols-3 md:gap-4 gap-8">
                 <div data-scroll class="text-left">
                     <router-link to="/">
-                        <h2 class="text-xl md:text-2xl font-hasbold">Mulai Belajar</h2>
+                        <img src="../assets/image/logos.png" alt="logo" class="h-16 w-20 md:w-auto md:h-auto">
                     </router-link>
                     <p class="text-base mt-5 font-hasroman">Platform belajar terbaik dari mentor yang sangat berpengalaman di bidangnya masing-masing.</p>
                     <p class="text-base mt-3 font-hasroman">© 2021 Mulai Belajar</p>
@@ -13,9 +13,13 @@
                     <h5 class="text-base md:text-lg font-hasbold mb-2">Butuh Bantuan ?</h5>
                     <p class="md:text-base text-sm mt-1 font-hasmedium">support@mulaibelajar.com</p>
                     <div class="inline-flex mt-3">
-                        <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
+                        <a href="https://www.instagram.com/mulaibelajar.co.id/">
+                            <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
+                        </a>
+                        <a href="https://www.tiktok.com/@mulaibelajar.co.id/">
+                            <img src="https://img.icons8.com/color/48/000000/tiktok.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
+                        </a>
                         <img src="https://img.icons8.com/color/64/000000/youtube-play.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
-                        <img src="https://img.icons8.com/color/48/000000/tiktok.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
                     </div>
                 </div>
                 <div data-scroll class="text-left w-auto">
