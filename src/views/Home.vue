@@ -14,35 +14,35 @@
     </section>
     <section class="md:py-40 py-32 w-full">
       <div class="w-full text-center md:px-0 px-3">
-        <h2 v-scroll-reveal.reset class="font-hasbold md:text-5xl text-3xl">Cari Tau Keunggulan Mulai Belajar</h2>
+        <h2 data-aos="fade-up" data-aos-duration="100" class="font-hasbold md:text-5xl text-3xl">Cari Tau Keunggulan Mulai Belajar</h2>
         <div class="mt-16 md:flex justify-center">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:w-5/6 w-full">
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1100" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_studikasus.svg" alt="studi_kasus" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Studi Kasus</h4>
               <h6 class="font-hasroman text-base text-white">Kita akan membedah bersama semua ilmu pengetahuan secara langsung</h6>
             </div>
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1100" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_access.svg" alt="access" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Lifetime Access</h4>
               <h6 class="font-hasroman text-base text-white">Mempelajari dan memahami materi kelas lebih santai tanpa batasan waktu</h6>
             </div>
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1100" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_konsultasi.svg" alt="konsultasi" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Konsultasi</h4>
               <h6 class="font-hasroman text-base text-white">Gabung dengan private group untuk berkonsultasi dengan mentor kelas</h6>
             </div>
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1200" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_bahasa.svg" alt="lokal" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">#ProdukLokal</h4>
               <h6 class="font-hasroman text-base text-white">Materi dibuat langsung oleh para kreator di negara Indonesia</h6>
             </div>
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1200" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_flag.svg" alt="sertifikat" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Live Learning</h4>
               <h6 class="font-hasroman text-base text-white">Belajar semua hal yang kamu mau secara tatap muka langsung dengan para mentor</h6>
             </div>
-            <div v-scroll-reveal.reset class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
+            <div data-aos="fade-up" data-aos-duration="1200" class="text-left anim-reveal p-7 rounded-lg bg-blue-500 shadow-inner">
               <img src="../assets/image/ic_sertifikat.svg" alt="sertifikat" class="md:h-20 md:w-20 h-16 w-16 mb-8">
               <h4 class="font-hasmedium md:text-2xl text-xl text-gray-100 mb-4">Bersertifikat Resmi</h4>
               <h6 class="font-hasroman text-base text-white">Selesaikan kelas dan projek dan dapatkan sertifikat dari kami</h6>
@@ -53,19 +53,19 @@
     </section>
     <section class="w-full h-auto">
       <div class="md:px-0 px-3 md:container mx-auto">
-        <p class="font-hasmedium md:text-base text-sm md:mb-2 mb-1" v-scroll-reveal.reset>Mulai Belajar Sekarang</p>
-        <h2 class="font-hasbold md:text-5xl text-3xl" v-scroll-reveal.reset>Pilih kelas yang <br> ingin kamu pelajari</h2>
+        <p class="font-hasmedium md:text-base text-sm md:mb-2 mb-1" data-aos="fade-up" data-aos-duration="1100">Mulai Belajar Sekarang</p>
+        <h2 class="font-hasbold md:text-5xl text-3xl" data-aos="fade-up" data-aos-duration="1100">Pilih kelas yang <br> ingin kamu pelajari</h2>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 md:gap-12 gap-5 md:mt-20 mt-10 md:px-10">
         <div v-for="(item, index) in listpelajaran" v-bind:key="index">
-          <div v-scroll-reveal.reset class="bg-boxs rounded-lg kelas-item text-left border shadow-lg py-14 px-8 cursor-pointer">
+          <div data-aos="fade-up" data-aos-duration="1100" class="bg-boxs rounded-lg kelas-item text-left border shadow-lg py-14 px-8 cursor-pointer">
               <h2 class="font-hasbold text-4xl">{{item.nama_pelajaran}}</h2>
               <p class="mt-4 font-hasroman text-sm">{{item.deskripsi}}</p>
               <p class="mt-5 font-hasroman text-sm">{{item.subtitle}}</p>
           </div>
         </div>
       </div>
-      <div class="my-20 flex justify-center" v-scroll-reveal.reset>
+      <div class="my-20 flex justify-center" data-aos="fade-up" data-aos-duration="1100">
         <router-link to="/kelas" class="w-auto text-center">
           <p class="border py-2 px-6 rounded-xl text-center font-hasbold cursor-pointer bg-blue-500 text-white shadow-2xl">Lihat Lainnya</p>
         </router-link>

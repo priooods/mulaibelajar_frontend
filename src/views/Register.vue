@@ -79,7 +79,13 @@ export default {
         }
     },
     methods: {
-        daftar(){},
+        daftar(){
+            this.$refs['formRegist'].validate(valid => {
+                this.register.password_verified = this.register.password;
+                if(valid) return this.$store.dispatch('users/Register', this.register);
+                else return false;
+            });
+        },
         loginForm(){
             this.$refs['formlogin'].validate(valid => {
                 if(valid) return this.$store.dispatch('users/Login', this.login);

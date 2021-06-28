@@ -1,6 +1,6 @@
 import axios from "axios";
 const client = axios.create({
-  baseURL: "http://127.0.0.1:8000/api/",
+  baseURL: "http://priodwisembodo.online/mulaibelajar_backend/public/api/",
 });
 
 export default client;

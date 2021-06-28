@@ -39,7 +39,7 @@
                   <div v-if="item.discount" class="px-4 mb-3 py-1 bg-red-500 text-white inline-flex rounded-lg">
                     <p class="font-hasbold text-xs">Discount {{item.discount ? item.discount : '' | currency('Rp. ')}}</p>
                   </div>
-                  <p class="font-hasbold text-lg">{{item.harga_akhir ? item.harga_akhir : '' | currency('Rp. ')}}</p>
+                  <p class="font-hasbold text-lg">{{item.harga_akhir ? item.harga_akhir : '' | currency('Rp. ')}}/ Bulan</p>
                 </div>
                 <div @click="checkoutParsial(item)" class="rounded-xl text-center md:mt-5 mt-4 py-2 w-full cursor-pointer hover:bg-yellow-500 bg-blue-500 text-white">
                     <p class="font-hasbold text-sm">Daftar Sekarang</p></div>

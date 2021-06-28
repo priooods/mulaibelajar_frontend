@@ -27,7 +27,7 @@
                         <div v-if="$store.state.users.logincheck == 1"
                         class="cursor-pointer px-5 py-1 bg-blue-500 hover:bg-yellow-500 text-white rounded-xl">
                             <p class="font-hasbold text-sm">Account</p></div>
-                        <div slot="content">
+                        <div slot="content" class="text-gray-700">
                             <div class="mb-2">
                                 <p class="font-hasmedium text-sm">{{$store.state.users.users ? $store.state.users.users.nama_lengkap : ''}}</p>
                                 <p class="font-hasmedium text-sm mt-1">{{$store.state.users.users ? $store.state.users.users.email : ''}}</p>

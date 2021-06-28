@@ -92,12 +92,12 @@ export default {
                 { index: 9, name: 'Group private belajar' },
                 { index: 10, name: 'Gratis bantuan pengerjaan PR' },
                 { index: 11, name: 'Sertifikat Kelas untuk kelas Pemrograman' },
-                { index: 12, name: 'Bonus T-Shirt Mulai Belajar' }
+                // { index: 12, name: 'Bonus T-Shirt Mulai Belajar' }
             ],
             listkonsultasi: [
-                { index: 0, name: 'Harga mulai dari Rp. 60,000' },
-                { index: 1, name: 'Minimal konsultasi mulai dari 1 jam' },
-                { index: 2, name: 'Konsultasi langsung secara live' },
+                { index: 0, name: 'Harga mulai dari Rp. 10,000' },
+                { index: 1, name: 'Minimal konsultasi mulai dari 30 menit' },
+                { index: 2, name: 'Konsultasi bisa secara langsung dan via chat' },
                 { index: 3, name: 'Bantuan masalah belajar sampai selesai' },
                 { index: 4, name: 'Privasi kamu terjamin' },
                 { index: 5, name: 'Bebas memilih tutor' },

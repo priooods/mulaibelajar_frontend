@@ -25,7 +25,8 @@
                     <p class="font-hasmedium text-xs mb-3"><span class="text-red-500 text-sm">* </span>Cara pembayaran & Proses belajar</p>
                     <div class="flex justify-start">
                         <p class="font-hasmedium text-xs mr-4">1</p>
-                        <p class="font-hasroman text-xs">Lakukan pembayaran dengan jumlah nominal di atas melalui m-Transfer Mandiri ke rekening 123456789 a/n PRIO DWI SEMBODO. </p>
+                        <p class="font-hasroman text-xs">Lakukan pembayaran dengan jumlah nominal di atas melalui m-Transfer BRI ke rekening <span class="font-hasmedium">006201018789535</span> a.n 
+                        <span class="font-hasmedium">Nurul Hikmah Fazri</span> </p>
                     </div>
                     <div class="flex justify-start">
                         <p class="font-hasmedium text-xs mr-3">2</p>
@@ -67,7 +68,7 @@
                     <p class="font-hasmedium text-xs mb-3"><span class="text-red-500 text-sm">* </span>Cara pembayaran & Proses belajar</p>
                     <div class="flex justify-start">
                         <p class="font-hasmedium text-xs mr-4">1</p>
-                        <p class="font-hasroman text-xs">Lakukan pembayaran dengan jumlah nominal di atas melalui m-Transfer Mandiri ke rekening 123456789 a/n PRIO DWI SEMBODO. </p>
+                        <p class="font-hasroman text-xs">Lakukan pembayaran dengan jumlah nominal di atas melalui m-Transfer BRI ke rekening <span class="font-hasmedium">006201018789535</span> a.n <span class="font-hasmedium">Nurul Hikmah Fazri</span> </p>
                     </div>
                     <div class="flex justify-start">
                         <p class="font-hasmedium text-xs mr-3">2</p>

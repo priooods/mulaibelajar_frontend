@@ -6,6 +6,8 @@ export default {
         nama_lengkap: "",
         email: "",
         password: "",
+        level: "",
+        no_hp: "",
         password_verified: "",
       },
       login: {
