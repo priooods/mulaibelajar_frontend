@@ -31,6 +31,7 @@ const routes = [
       {
         path: "kelas",
         name: "Kelas",
+        props: true,
         component: () => import("../views/Kelas.vue"),
       },
       {
@@ -38,14 +39,50 @@ const routes = [
         name: "Biaya Belajar",
         component: () => import("../views/BiayaBelajar.vue"),
       },
+      {
+        path: "konsultasi",
+        name: "Konsultasi",
+        component: () => import("../views/Konsultasi.vue"),
+      },
+      {
+        path: "checkout",
+        name: "Checkout",
+        props: true,
+        component: () => import("../views/Checkout.vue"),
+      },
     ],
+  },
+  {
+    path: "/register",
+    name: "Register",
+    component: () => import("../views/Register.vue"),
+  },
+  {
+    path: "/pembayaran",
+    name: "Pembayaran",
+    component: () => import("../views/Pembayaran.vue"),
   },
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "active",
+  scrollBehavior(to, from, savedPosition) {
+    if (to.hash) {
+      return {
+        selector: to.hash,
+        behavior: "smooth",
+      };
+    }
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 };
+    }
+  },
 });
 
 export default router

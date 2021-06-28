@@ -209,9 +209,7 @@
 
 <script>
 import FooterWeb from '../components/FooterWeb.vue';
-import LocomotiveScroll from '@/plugin/locomotive.js';
 export default {
-   mixins: [LocomotiveScroll],
    components: { FooterWeb }
 }
 </script>

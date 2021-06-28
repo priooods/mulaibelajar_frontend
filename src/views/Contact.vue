@@ -42,12 +42,10 @@
 </template>
 
 <script>
-import LocomotiveScroll from '@/plugin/locomotive.js';
 import FooterWeb from '../components/FooterWeb.vue';
 export default {
     name: "Contact",
     components: {FooterWeb},
-    mixins: [LocomotiveScroll],
 }
 </script>
 

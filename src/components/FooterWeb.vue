@@ -1,15 +1,15 @@
 <template>
-    <div class="footers">
-        <div class="md:container mx-auto py-8 md:px-0 px-3" data-scroll-section>
+    <section class="footers">
+        <div class="md:container mx-auto py-8 md:px-0 px-3">
             <div class="grid md:grid-cols-3 md:gap-4 gap-8">
-                <div data-scroll class="text-left">
+                <div class="text-left">
                     <router-link to="/">
-                        <img src="../assets/image/logos.png" alt="logo" class="h-16 w-20 md:w-auto md:h-auto">
+                        <img src="../assets/image/logos.png" alt="logo" class="h-16 w-20 md:w-20 md:h-16">
                     </router-link>
                     <p class="text-base mt-5 font-hasroman">Platform belajar terbaik dari mentor yang sangat berpengalaman di bidangnya masing-masing.</p>
                     <p class="text-base mt-3 font-hasroman">© 2021 Mulai Belajar</p>
                 </div>
-                <div data-scroll class="text-left">
+                <div class="text-left">
                     <h5 class="text-base md:text-lg font-hasbold mb-2">Butuh Bantuan ?</h5>
                     <p class="md:text-base text-sm mt-1 font-hasmedium">support@mulaibelajar.com</p>
                     <div class="inline-flex mt-3">
@@ -22,30 +22,30 @@
                         <img src="https://img.icons8.com/color/64/000000/youtube-play.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
                     </div>
                 </div>
-                <div data-scroll class="text-left w-auto">
+                <div class="text-left w-auto">
                     <h5 class="text-base md:text-lg font-hasbold md:mb-0 mb-4">Lainnya</h5>
-                    <div class="w-3/12 mt-2 cursor-pointer hover:text-indigo-600">
+                    <div class="w-3/12 mt-2 cursor-pointer hover:text-blue-500">
                         <router-link to="/tentang">
-                            <p class="md:text-md text-sm font-hasmedium">Tentang Kami</p>
+                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Tentang Kami</p>
                         </router-link>
                     </div>
-                    <div class="w-3/12 mt-2 cursor-pointer hover:text-indigo-600">
+                    <div class="w-3/12 mt-2 cursor-pointer hover:text-blue-500">
                         <router-link to="/contact">
-                            <p class="md:text-md text-sm font-hasmedium">Contact</p>
+                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Contact</p>
                         </router-link>
                     </div>
-                    <div class="w-4/12 mt-2 cursor-pointer hover:text-indigo-600">
+                    <div class="w-4/12 mt-2 cursor-pointer hover:text-blue-500">
                         <router-link to="/privacypolicy">
-                            <p class="md:text-md text-sm font-hasmedium">Privacy & Policy</p>
+                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Privacy & Policy</p>
                         </router-link>
                     </div>
-                    <div class="w-4/12 mt-2 cursor-pointer hover:text-indigo-600">
+                    <div class="w-4/12 mt-2 cursor-pointer hover:text-blue-500">
                         <p class="md:text-md text-sm font-hasmedium">Jam Operasional</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

@@ -2,18 +2,26 @@ $orange-bold: #ff6701;
 $orange: #fea82f;
 $orange-low: #ffc288;
 $orange-verylow: #fcecdd;
+$bg-white: #F4F7FC;
 $text-light: #374151;
 $bg-dark: #111827;
 $bg-dark-content: #192130;
-$indigo-600: #4F46E5;
+$indigo-600: #3B82F6;
 $indigo-400: #818CF8;
 $indigo-500: #6366F1;
 
 #app.light-theme{
     color: $text-light;
-    background: white;
+    background: $bg-white;
+    a{ color: $text-light; }
+    a:hover{ color: $indigo-600; }
+    a.active{ color: $indigo-600; }
     .bg-primary{
         background: white;
+    }
+    .bg-nav-mobile{
+        color: $text-light;
+        background: $bg-white;
     }
     .text-type{
         color: $indigo-600;
@@ -22,7 +30,7 @@ $indigo-500: #6366F1;
         background: white;
     }
     .bg-boxs:hover{
-        background: $indigo-400;
+        background: $indigo-600;
         color: white;
     }
 }
@@ -30,29 +38,43 @@ $indigo-500: #6366F1;
 #app.dark-theme{
     color: white;
     background: $bg-dark;
+    a{ color: $bg-white; }
+    a:hover{ color: $indigo-600; }
+    a.active{ color: $indigo-600; }
     .bg-primary{
         background: $bg-dark;
     }
     .text-type{
         color: $indigo-400;
     }
-    .bg-boxs{
+    .bg-nav-mobile{
+        color: white;
+        background: $bg-dark;
+    }
+    .bg-boxs,.block-regis{
         background: $bg-dark-content;
     }
     .bg-boxs:hover{
-        background: $indigo-400;
-        color: white;
+        background: $indigo-600;
+        color: white
     }
     .border{
         border-color: $bg-dark-content;
     }
 }
+body{
+    overflow: overlay;
+}
 ::-webkit-scrollbar{
-    width: 3px;
+    width: 4px;
+    background: transparent;
     border-radius: 50%;
 }
 ::-webkit-scrollbar-thumb{
     opacity: 0.5;
-    background: $indigo-600;
+    background: #3B82F6;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #F59F2C;
     cursor: grab;
 }

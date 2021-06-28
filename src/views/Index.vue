@@ -1,7 +1,7 @@
 <template>
   <div class="index">
       <Navigasi :theme="theme" @ubahtema="ubahtema"></Navigasi>
-      <div class="h-auto w-full">
+      <div class="w-auto h-auto">
           <router-view></router-view>
       </div>
   </div>
