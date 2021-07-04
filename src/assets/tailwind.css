@@ -6,27 +6,27 @@
 
 @layer base{
   @font-face {
-    font-family: HasRoman;
-    src: url('./font/NeueHaasDisplayRoman.woff') format('woff');
+    font-family: PopExbold;
+    src: url('./font/PoppinsExtraBold.woff') format('woff');
   }
   @font-face {
-    font-family: HasMedium;
-    src: url('./font/NeueHaasDisplayMediu.woff') format('woff');
+    font-family: PopMed;
+    src: url('./font/PoppinsMedium.woff') format('woff');
   }
   @font-face {
-    font-family: HasBlack;
-    src: url('./font/NeueHaasDisplayBlack.woff') format('woff');
+    font-family: PopBlack;
+    src: url('./font/PoppinsBlack.woff') format('woff');
   }
   @font-face {
-    font-family: HasBold;
-    src: url('./font/NeueHaasDisplayBold.woff') format('woff');
+    font-family: PopBold;
+    src: url('./font/PoppinsBold.woff') format('woff');
   }
   @font-face {
-    font-family: HasLight;
-    src: url('./font/NeueHaasDisplayLight.woff') format('woff');
+    font-family: PopLight;
+    src: url('./font/PoppinsLight.woff') format('woff');
   }
   @font-face {
-    font-family: HasThin;
-    src: url('./font/NeueHaasDisplayThin.woff') format('woff');
+    font-family: PopSembold;
+    src: url('./font/PoppinsSemiBold.woff') format('woff');
   }
 }

@@ -1,17 +1,79 @@
 <template>
     <section class="footers">
         <div class="md:container mx-auto py-8 md:px-0 px-3">
-            <div class="grid md:grid-cols-3 md:gap-4 gap-8">
+            <div class="grid md:grid-cols-4 md:gap-4 gap-8">
                 <div class="text-left">
                     <router-link to="/">
                         <img src="../assets/image/logos.png" alt="logo" class="h-16 w-20 md:w-20 md:h-16">
                     </router-link>
-                    <p class="text-base mt-5 font-hasroman">Platform belajar terbaik dari mentor yang sangat berpengalaman di bidangnya masing-masing.</p>
-                    <p class="text-base mt-3 font-hasroman">© 2021 Mulai Belajar</p>
+                    <p class="text-sm mt-5 font-popmed">Platform belajar tanpa batas untuk kamu generasi hebat Indonesia.</p>
+                    <p class="text-sm mt-3 font-popmed">© 2021 Mulai Belajar</p>
                 </div>
-                <div class="text-left">
-                    <h5 class="text-base md:text-lg font-hasbold mb-2">Butuh Bantuan ?</h5>
-                    <p class="md:text-base text-sm mt-1 font-hasmedium">support@mulaibelajar.com</p>
+                <div class="">
+                    <h5 class="text-sm md:text-base font-popbold mb-2">Kelas Mulai Belajar</h5>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Pemrograman</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Penalaran</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Matematika</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Biologi</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Fisika</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Kimia</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Ekonomi</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Bahasa Indonesia</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Bahasa Inggris</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">Sejarah</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">IPA</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/" class="font-popmed text-sm text-gray-700">IPS</router-link>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-sm md:text-base font-popbold md:mb-0 mb-4">Tentang Kami</h5>
+                    <div class="mt-2">
+                        <router-link to="/tentang" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">Tentang Kami</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/contact" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">We are Hiring</router-link>
+                    </div>
+                    <div class="mt-2">
+                        <router-link to="/privacypolicy" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">Privacy & Policy</router-link>
+                    </div>
+                    <div class="text-left mt-10">
+                        <h5 class="text-sm md:text-base font-popbold mb-2">Butuh Bantuan ?</h5>
+                        <div class="inline-flex">
+                            <img src="../assets/image/email.svg" alt="email" class="h-5 w-5"><p class="md:text-sm text-xs ml-3 font-popmed">support@mulaibelajar.online</p>
+                        </div>
+                        <div class="inline-flex w-full mt-2">
+                            <img src="../assets/image/whatsapp.svg" alt="whatsapp" class="h-5 w-5"><p class="md:text-sm text-xs ml-3 font-popmed">085925325096</p>
+                        </div>
+                        <div class="inline-flex mt-2">
+                            <img src="../assets/image/telegram.svg" alt="telegram" class="h-5 w-5"><p class="md:text-sm text-xs ml-3 font-popmed">085925325096</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-sm md:text-base font-popbold md:mb-0 mb-4">Media</h5>
                     <div class="inline-flex mt-3">
                         <a href="https://www.instagram.com/mulaibelajar.co.id/">
                             <img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
@@ -20,27 +82,6 @@
                             <img src="https://img.icons8.com/color/48/000000/tiktok.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
                         </a>
                         <img src="https://img.icons8.com/color/64/000000/youtube-play.png" class="cursor-pointer h-7 w-7 md:h-8 md:w-8 mr-4"/>
-                    </div>
-                </div>
-                <div class="text-left w-auto">
-                    <h5 class="text-base md:text-lg font-hasbold md:mb-0 mb-4">Lainnya</h5>
-                    <div class="w-3/12 mt-2 cursor-pointer hover:text-blue-500">
-                        <router-link to="/tentang">
-                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Tentang Kami</p>
-                        </router-link>
-                    </div>
-                    <div class="w-3/12 mt-2 cursor-pointer hover:text-blue-500">
-                        <router-link to="/contact">
-                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Contact</p>
-                        </router-link>
-                    </div>
-                    <div class="w-4/12 mt-2 cursor-pointer hover:text-blue-500">
-                        <router-link to="/privacypolicy">
-                            <p class="md:text-md poin-navigasi text-sm font-hasmedium">Privacy & Policy</p>
-                        </router-link>
-                    </div>
-                    <div class="w-4/12 mt-2 cursor-pointer hover:text-blue-500">
-                        <p class="md:text-md text-sm font-hasmedium">Jam Operasional</p>
                     </div>
                 </div>
             </div>

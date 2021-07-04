@@ -1,15 +1,15 @@
 module.exports = {
-  purge: { content: ['./public/**/*.html', './src/**/*.vue'] },
+  purge: { content: ["./public/**/*.html", "./src/**/*.vue"] },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        hasbold: ["HasBold"],
-        hasroman: ["HasRoman"],
-        hasmedium: ["HasMedium"],
-        hasblack: ["HasBlack"],
-        haslight: ["HasLight"],
-        hasthin: ["HasThin"],
+        popexbold: ["PopExbold"],
+        popmed: ["PopMed"],
+        popblack: ["PopBlack"],
+        popbold: ["PopBold"],
+        poplight: ["PopLight"],
+        popsembold: ["PopSembold"],
       },
     },
   },
@@ -17,4 +17,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};

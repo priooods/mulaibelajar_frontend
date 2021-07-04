@@ -35,6 +35,9 @@
                 <h3 class="font-hasbold mt-1 text-base md:text-xl">{{item.pelajaran ? item.pelajaran.nama_pelajaran : ''}}</h3>
                 <p class="font-hasroman text-sm mt-2">{{item.pelajaran ? item.pelajaran.deskripsi : ''}}</p>
                 <div class="mt-4">
+                  <p class="font-hasmedium">Dengan belajar bersama Mulai Belajar, berarti kamu sudah turut membantu pendidikan untuk anak-anak lain di tempat tertinggal</p>
+                </div>
+                <div class="mt-4">
                   <p class="font-hasbold text-base text-gray-500 line-through mb-1">{{item.harga_discount ? item.harga_discount : '' | currency('Rp. ')}}</p>
                   <div v-if="item.discount" class="px-4 mb-3 py-1 bg-red-500 text-white inline-flex rounded-lg">
                     <p class="font-hasbold text-xs">Discount {{item.discount ? item.discount : '' | currency('Rp. ')}}</p>
