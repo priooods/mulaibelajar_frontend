@@ -66,7 +66,7 @@
       <svg data-name="mids" class="fill-current w-full border-none top-svg text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
       </svg>
-      <div class="-mt-1 md:py-24 py-16 bg-blue-500 md:px-0 px-3">
+      <div class="-my-1.5 md:py-24 py-16 bg-blue-500 md:px-0 px-3">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="text-white">
             <h2 class="font-popbold md:text-4xl text-xl ">Tingkatkan Keahlian Softskill <br class="md:block hidden"> Kamu Sekarang Juga !</h2>
@@ -84,9 +84,11 @@
                   <h6 class="font-popbold text-xl mt-5">{{item.name}}</h6>
                   <p class="font-popmed mt-2">{{item.desc}}</p>
                   <div class="mt-8">
-                    <div class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
-                      <p>Mulai Belajar</p>
-                    </div>
+                    <router-link :to="'/kelas/'+ item.code">
+                      <div class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
+                        <p>Mulai Belajar</p>
+                      </div>
+                    </router-link>
                   </div>
                 </div>
               </div>
@@ -101,7 +103,9 @@
     <section class="mt-11">
       <h2 class="font-popbold md:text-4xl text-center text-xl">Mau Belajar Apa Hari ini ?</h2>
       <div class="md:mt-20 mt-12">
-        <carousel :margin="18" :stagePadding="40" :nav="false" :dots="false" :responsive="{0:{items:2},600:{items:4}}">
+        <carousel :autoplayHoverPause="true" :loop="true" :margin="18" 
+        :autoplay="true" :stagePadding="40" :nav="false" :dots="false" 
+        :responsive="{0:{items:1},600:{items:4}}">
           <div v-for="(item,i) in listpelajaran" v-bind:key="i">
             <div class="rounded-xl my-8 shadow-lg px-5 pb-7">
               <div class="populer rounded-b-lg inline-block text-white py-1 px-2">
@@ -119,17 +123,37 @@
           </div>
         </carousel>
         <div class="mt-6 text-center">
-          <p class="font-popsembold hover:text-blue-500 inline-flex text-sm cursor-pointer">Lihat Lainnya</p>
+          <router-link to="/kelas/akademik"><p class="font-popsembold text-gray-700 hover:text-blue-500 inline-flex text-sm cursor-pointer">Lihat Lainnya</p></router-link>
         </div>
       </div>
     </section>
-    <section class="py-14 bg-blue-100 my-20 h-screen">
-      <h4 class="font-popbold text-2xl text-blue-500 text-center">Kata Mereka yang Pernah Belajar Bareng Mulai Belajar</h4>
+    <section class="py-14 bg-blue-100 my-20 h-auto">
+      <h4 class="font-popbold text-2xl text-blue-500 text-center">Kata Mereka yang Pernah Belajar Bareng di <span class="text-yellow-500">Mulai Belajar</span></h4>
+      <div class="md:mt-20 mt-12">
+        <carousel :autoplayHoverPause="true" :loop="true" 
+        :margin="18" :autoplay="true" :stagePadding="40" :nav="false" 
+        :dots="false" :responsive="{0:{items:1},600:{items:3}}">
+          <div v-for="(item,i) in listReview" v-bind:key="i">
+            <div class="rounded-xl my-8 shadow-lg px-5 py-3">
+              <div class="inline-flex justify-end">
+                <div class="md:w-8 md:h-8 w-7 h-7"><img src="../assets/image/account.svg" alt="profile"></div>
+                <div class="ml-5 h-full">
+                  <h6 class="font-popbold text-sm">{{item.name}}</h6>
+                  <p class="font-popmed text-xs">{{item.subs}}</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <span class="font-popmed text-xs md:text-sm">"{{item.desc}}"</span>
+              </div>
+            </div>
+          </div>
+        </carousel>
+      </div>
     </section>
-    <section class="h-auto py-32 flex justify-center items-center">
+    <section class="h-auto md:py-32 py-10 md:px-0 px-2 flex justify-center items-center">
       <div class="text-center">
-        <h2 class="font-popbold md:text-5xl text-3xl">Mulai Belajar Sekarang</h2>
-        <h6 class="font-hasmedium md:text-xl text-base mt-1 md:mt-2">Belajar apa saja jadi lebih mudah. dimanapun dan kapanpun</h6>
+        <h2 class="font-popbold md:text-5xl text-2xl">Mulai Belajar Sekarang</h2>
+        <h6 class="font-popsembold md:text-xl text-sm mt-1 md:mt-2">Belajar apa saja jadi lebih mudah. dimanapun dan kapanpun</h6>
         <router-link to="/kelas">
           <div class="w-auto inline-flex text-center md:mt-20 mt-14">
             <p class="border py-2 px-6 rounded-xl text-center font-popbold cursor-pointer bg-blue-500 hover:bg-yellow-500 text-white shadow-2xl">Belajar Sekarang</p>
@@ -138,9 +162,9 @@
       </div>
     </section>
     <FooterWeb></FooterWeb>
-    <div class="fixed z-10 bottom-10 right-12 p-3 hidden rounded-tl-xl rounded-tr-xl rounded-bl-xl whatsapp md:inline-flex cursor-pointer">
+    <a href="https://wa.me/6285925325096/?text=Hallo+kak,+Aku+mau+daftar+kelas+di+Mulai+Belajar+nih,+Tolong+bantu+aku+untuk+daftar+dong" class="fixed z-10 bottom-10 right-12 p-3 hidden rounded-tl-xl rounded-tr-xl rounded-bl-xl whatsapp md:inline-flex cursor-pointer">
       <img src="../assets/image/whatsapp.svg" alt="wa" class="h-5 w-5"><p class="ml-3 font-popmed text-sm text-gray-100">Support Center</p>
-    </div>
+    </a>
   </div>
 </template>
 
@@ -162,12 +186,34 @@ export default {
         { 
           title: 'Mulai Ngoding',
           name: 'Pemrograman',
+          code: 'soft-skill/ngoding',
           desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
         },
         { 
           title: 'Mulai Nulis',
           name: 'Penalaran',
+          code: 'soft-skill/nulis',
           desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+        }
+      ],
+      listReview: [
+        {
+          name: 'Harbi Martin',
+          subs: 'Mahasiswa',
+          desc: 'Gokil banget sih akhirnya ketemu juga tempat belajar ngoding yang jelas dan seru, '
+                + ' Ternyata ngoding bisa segampang ini yah. Makasih banget Mulai Belajar gua mau belajar ngoding lebih banyak lagi'
+        },
+        {
+          name: 'Mahez Arya',
+          subs: 'Pelajar',
+          desc: 'Makasih banyak tutor Mulai Belajar, asik banget belajarnya.. dulu Matematika jadi pelajaran paling serem banget, '
+                + ' Cuman ternyata setelah dipelajarin asik juga yah Matematika'
+        },
+        {
+          name: 'Ajeng',
+          subs: 'Mahasiswa',
+          desc: 'Makasih banyak tutor Mulai Belajar, lagi masa pandemi gini jadi lebih bermanfaat bisa belajar bareng nambah pengetahuan, '
+                + ' Dijamin seru banget sih asli belajar disin apalagi tutor nya lucu banget, konsep belajarnya juga sederhana tapi jelas. Recommended banget'
         }
       ],
       listpelajaran: [
@@ -220,34 +266,44 @@ export default {
       .delete(-7, { speed: 200, delay: 1000 })
       .go();
     },
+    testing(){
+      console.log('click');
+    },
+    getLinkWhastapp(number) {
+      var url = 'https://api.whatsapp.com/send?phone=' 
+        + number
+      return url
+    }
   },
 }
 </script>
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
-.populer{
-  background-color: #F86231;
-}
-.tops svg{
-  color: #F4F7FC;
-}
-.mid-svg .top-svg{
-  background: #F4F7FC;
-}
-.whatsapp{ background: #62D843; }
-.mid-svg .bot-svg{ color: #F4F7FC; }
-.float{
-  animation: float 6s ease-in-out infinite;
-}
-@keyframes float {
-	0% {
-		transform: translatey(0px);
-	}
-	50% {
-		transform: translatey(-20px);
-	}
-	100% {
-		transform: translatey(0px);
-	}
+.home{
+  .populer{
+    background-color: #F86231;
+  }
+  .tops svg{
+    color: #F4F7FC;
+  }
+  .mid-svg .top-svg{
+    background: #F4F7FC;
+  }
+  .whatsapp{ background: #62D843; }
+  .mid-svg .bot-svg{ color: #F4F7FC; }
+  .float{
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+  }
 }
 </style>

@@ -73,3 +73,5 @@ body{
 ::-webkit-scrollbar-thumb{
     background: #F59F2C;
 }
+a:hover{ color: $orange }
+a.active{ color: $indigo-600; }

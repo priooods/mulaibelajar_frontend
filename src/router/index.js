@@ -5,7 +5,6 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: "/",
-    name: "Index",
     component: () => import("../views/Index.vue"),
     children: [
       {
@@ -29,7 +28,7 @@ const routes = [
         component: () => import("../views/Contact.vue"),
       },
       {
-        path: "kelas",
+        path: "kelas/:type?/:code?",
         name: "Kelas",
         props: true,
         component: () => import("../views/Kelas.vue"),
@@ -70,18 +69,14 @@ const router = new VueRouter({
   routes,
   linkActiveClass: "active",
   linkExactActiveClass: "active",
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to) {
     if (to.hash) {
       return {
         selector: to.hash,
         behavior: "smooth",
       };
     }
-    if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { x: 0, y: 0 };
-    }
+    return { x: 0, y: 0 };
   },
 });
 

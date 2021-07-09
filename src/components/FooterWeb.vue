@@ -12,40 +12,40 @@
                 <div class="">
                     <h5 class="text-sm md:text-base font-popbold mb-2">Kelas Mulai Belajar</h5>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Pemrograman</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Pemrograman</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Penalaran</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Penalaran</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Matematika</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Matematika</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Biologi</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Biologi</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Fisika</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Fisika</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Kimia</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Kimia</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Ekonomi</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Ekonomi</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Bahasa Indonesia</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Indonesia</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Bahasa Inggris</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Inggris</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">Sejarah</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Sejarah</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">IPA</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPA</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/" class="font-popmed text-sm text-gray-700">IPS</router-link>
+                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPS</span></router-link>
                     </div>
                 </div>
                 <div>
