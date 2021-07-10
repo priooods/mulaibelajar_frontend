@@ -93,19 +93,21 @@
                 </div>
             </div>
         </div>
-        <Modal v-model="showpop">
+        <Modal v-model="showpop" :width="360">
             <p slot="header" class="text-center">
                 <span class=" font-popsembold"> Konfimasi Pembayaran</span>
             </p>
             <div style="text-align:center">
                 <p>Apakah anda sudah melakukan pembayaran dan ingin melakukan konfirmasi ke admin ?</p>
             </div>
-            <div slot="footer" class="grid grid-cols-2 gap-2">
+            <div slot="footer" class="text-center">
                 <Button type="error" @click="showpop =!showpop">Cancel</Button>
-                <Button type="success" 
-                    @click="konfirmasi($store.state.pesanan.pesanan)"
-                    >Konfirmasi
-                </Button>
+                <a class="w-full ml-4" :href="$router.resolve({path: '/confirmasi/' + $store.state.pesanan.pesanan.titl }).href">
+                    <Button type="success" 
+                        @click="konfirmasi($store.state.pesanan.pesanan)"
+                        >Konfirmasi
+                    </Button>
+                </a>
             </div>
         </Modal>
         <FooterWeb></FooterWeb>
@@ -127,12 +129,11 @@ export default {
     },
     methods: {
         konfirmasi(values){
-            window.open("https://wa.me/6285925325096/?text=" 
-            + 'Halo, Saya ' + this.$store.state.users.users.flnm + '. Saya ingin melakukan konfirmasi pembayaran kelas '
-            + values.titl + ' dengan code pelajaran ' + values.cde
-            + '. Akses kelas untuk ' + this.$store.state.users.users.eml
-            + '. Berikut saya lampirkan foto bukti pembayaran :','_blank');
-            return this.showpop = false;
+            return window.open("https://api.whatsapp.com/send?phone=6285925325096/&text=" 
+                + 'Halo, Saya ' + this.$store.state.users.users.flnm + '. Saya ingin melakukan konfirmasi pembayaran kelas '
+                + values.titl + ' dengan code pelajaran ' + values.cde
+                + '. Akses kelas untuk ' + this.$store.state.users.users.eml
+                + '. Berikut saya lampirkan foto bukti pembayaran :' , '_blank');
         }
     },
 }

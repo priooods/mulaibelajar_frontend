@@ -16,9 +16,6 @@
 <script>
 export default {
   name: 'Confirmasi',
-  // created() {
-  //   location.reload();
-  // },
 }
 </script>
 

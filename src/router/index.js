@@ -48,13 +48,13 @@ const routes = [
         name: "Pembayaran",
         component: () => import("../views/Pembayaran.vue"),
       },
-      {
-        path: "/confirmasi/:conf?",
-        name: "Confirmasi",
-        props: true,
-        component: () => import("../views/Confirmasi.vue"),
-      },
     ],
+  },
+  {
+    path: "/confirmasi/:conf?",
+    name: "Confirmasi",
+    props: true,
+    component: () => import("../views/Confirmasi.vue"),
   },
   {
     path: "/register",
