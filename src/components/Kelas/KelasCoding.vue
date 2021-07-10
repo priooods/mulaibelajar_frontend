@@ -41,13 +41,16 @@ import FooterWeb from '../FooterWeb.vue';
 export default {
   components: {FooterWeb,carousel},
   name: 'KelasCoding',
+  mounted() {
+    this.$store.dispatch('pelajaran/FindType','ngoding');
+  },
   data() {
     return {
       bahasa: [
         { src: 'logo_java.svg' },{ src: 'logo_cplus.svg' },
         { src: 'logo_js.svg' },{ src: 'logo_php.svg' },
         { src: 'logo_html.svg' },{ src: 'logo_css.svg' },
-        { src: 'logo_ts.svg' }
+        { src: 'logo_ts.svg' }, { src: 'kotlin.svg' },
       ]
     }
   },

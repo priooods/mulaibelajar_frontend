@@ -2,21 +2,28 @@
   <div class="navigasi">
         <div class="w-full absolute z-10">
             <div class="flex justify-start md:px-0 px-3 md:py-0 py-2 container mx-auto">
-                <router-link to="/" exact class="h-16 w-20 md:w-20 md:h-16">
+                <router-link to="/" exact class="h-16 w-20 md:w-20 md:h-16 mr-auto">
                     <img src="../assets/image/logos.png" alt="logo">
                 </router-link>
-                <div class="md:flex ml-auto my-auto hidden">
+                <div class="md:flex my-auto hidden">
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/kelas" class="text-base font-popbold md:ml-10 cursor-pointer">Kelas</router-link>
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/biaya" class="text-base font-popbold md:ml-10 cursor-pointer">Biaya Belajar</router-link>
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/konsultasi" class="text-base font-popbold md:ml-10 cursor-pointer">Konsultasi</router-link>
                 </div>
-                <div class="md:ml-8 ml-auto px-4 py-1 my-auto h-full font-bold rounded-lg cursor-pointer bg-yellow-500 text-white">Masuk</div>
+                <div v-if="!$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" class="md:ml-8 px-4 py-1 my-auto h-full font-bold rounded-lg cursor-pointer bg-yellow-500"><router-link to="/register"><p class="text-white">Masuk</p></router-link></div>
+                <Poptip v-if="$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" placement="bottom-end" class="my-auto md:ml-8 ml-auto">
+                    <img src="../assets/image/account.svg" alt="profile" class="cursor-pointer w-7 h-7">
+                    <ul slot="content" class="text-gray-700 py-1">
+                        <li class="text-xs font-popsembold"><p>Halo, {{$store.state.users.users ? $store.state.users.users.username : ''}}</p></li>
+                        <li class="text-xs font-popsembold mt-2 inline-flex"><p class="cursor-pointer hover:text-blue-500" @click="Logout">Keluar</p></li>
+                    </ul>
+                </Poptip>
                 <div :class="$route.name == 'Home' ? 'text-white' : 'text-gray-700'" class="md:hidden block my-auto ml-5 mb-auto">
                     <v-icon name="bars" class="cursor-pointer icons"/>
                 </div>
             </div>
         </div>
-        <div class="min-h-screen bg-white md:hidden fixed top-0 z-50 -left-96 w-full layer-menu bg-nav bg-menu">
+        <div class="min-h-screen bg-white md:hidden fixed top-0 z-50 -left-full w-full layer-menu bg-nav bg-menu">
             <div class="text-xs mt-3 ml-3 menu-mobile">
                 <div class="flex justify-end mr-5 mb-5">
                     <v-icon name="times" class="cursor-pointer icons"/>
@@ -52,6 +59,11 @@ export default {
     props:{
         theme: Number
     },
+    data() {
+        return {
+            showDropdown: 0
+        }
+    },
     created(){
         gsap.registerPlugin(CSSPlugin);
     },
@@ -77,12 +89,15 @@ export default {
                 tl.reversed(!tl.reversed());
             });
         },
-        logouts(){
-            return this.$store.dispatch('users/Logout', null);
+        Logout(){
+            return this.$store.dispatch('users/Logout');
         }
     }
 }
 </script>
 
 <style>
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 </style>

@@ -3,12 +3,11 @@ export default {
     return {
       register: {
         username: "",
-        nama_lengkap: "",
-        email: "",
+        flnm: "",
+        eml: "",
         password: "",
-        level: "",
-        no_hp: "",
-        password_verified: "",
+        lvl: "",
+        nhp: "",
       },
       login: {
         username: "",

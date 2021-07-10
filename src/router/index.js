@@ -44,10 +44,15 @@ const routes = [
         component: () => import("../views/Konsultasi.vue"),
       },
       {
-        path: "checkout",
-        name: "Checkout",
+        path: "/pembayaran",
+        name: "Pembayaran",
+        component: () => import("../views/Pembayaran.vue"),
+      },
+      {
+        path: "/confirmasi/:conf?",
+        name: "Confirmasi",
         props: true,
-        component: () => import("../views/Checkout.vue"),
+        component: () => import("../views/Confirmasi.vue"),
       },
     ],
   },
@@ -55,11 +60,6 @@ const routes = [
     path: "/register",
     name: "Register",
     component: () => import("../views/Register.vue"),
-  },
-  {
-    path: "/pembayaran",
-    name: "Pembayaran",
-    component: () => import("../views/Pembayaran.vue"),
   },
 ];
 

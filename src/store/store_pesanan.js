@@ -5,9 +5,8 @@ export default {
     pesanan: [],
   },
   actions: {
-    Add({ commit }, data) {
-      Pesanan.add(data).then((result) => {
-        console.log(result);
+    Parsial({ commit }, id) {
+      Pesanan.findparsial(id).then((result) => {
         if (result.data.error_code == 0)
           return commit("pesanan", result.data.data);
       });

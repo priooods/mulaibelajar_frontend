@@ -1,5 +1,4 @@
 import client from "./index";
-import cookies from "vue-cookies";
 export default {
   register(data) {
     return client.post("register", data);
@@ -7,10 +6,17 @@ export default {
   login(data) {
     return client.post("login", data);
   },
-  me() {
+  logout(params) {
+    return client.get("logout", {
+      headers: {
+        Authorization: "Bearer " + params,
+      },
+    });
+  },
+  me(params) {
     return client.get("me", {
       headers: {
-        Authorization: "Bearer " + cookies.get("_bsf"),
+        Authorization: "Bearer " + params,
       },
     });
   },

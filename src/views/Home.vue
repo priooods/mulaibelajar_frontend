@@ -12,7 +12,7 @@
             <h5 class="font-popbold mt-auto text-lg md:text-xl">#Mulai Belajar</h5>
             <h5 class="font-popbold mb-auto text-type text-lg md:text-xl ml-1 text-yellow-400" id="type"></h5>
           </div>
-          <div class="mt-6 font-popbold text-white px-4 py-2 rounded-lg cursor-pointer bg-yellow-500 inline-flex"><p>Belajar Sekarang</p></div>
+          <router-link to="/kelas"><div class="mt-6 font-popbold text-white px-4 py-2 rounded-lg cursor-pointer bg-yellow-500 inline-flex"><p>Belajar Sekarang</p></div></router-link>
         </div>
         <div class="mt-auto md:block hidden">
           <img src="../assets/image/studys.svg" class="h-5/6 w-5/6 ml-auto -mb-1.5" alt="">
@@ -82,7 +82,7 @@
                   </div>
                   <h5 class="mt-3 text-2xl text-blue-500 font-popbold">{{item.title}}</h5>
                   <h6 class="font-popbold text-xl mt-5">{{item.name}}</h6>
-                  <p class="font-popmed mt-2">{{item.desc}}</p>
+                  <p class="font-popmed mt-2 line-clamp-4">{{item.desc}}</p>
                   <div class="mt-8">
                     <router-link :to="'/kelas/'+ item.code">
                       <div class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
@@ -187,7 +187,8 @@ export default {
           title: 'Mulai Ngoding',
           name: 'Pemrograman',
           code: 'soft-skill/ngoding',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Mulai dari sekarang kita akan bikin applikasi apa saja yang kamu mau. Mengekplore semua hal tentang dunia'
+              + " programming jadi lebih mudah dan seru bareng para tutor berpengalaman"
         },
         { 
           title: 'Mulai Nulis',

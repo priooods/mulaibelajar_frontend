@@ -9,7 +9,7 @@ export default {
             trigger: "blur",
           },
         ],
-        no_hp: [
+        nhp: [
           {
             required: true,
             type: "string",
@@ -24,14 +24,14 @@ export default {
             trigger: "blur",
           },
         ],
-        nama_lengkap: [
+        flnm: [
           {
             required: true,
             message: "nama lengkap required",
             trigger: "blur",
           },
         ],
-        email: [
+        eml: [
           {
             required: true,
             message: "email required",
@@ -43,7 +43,7 @@ export default {
             trigger: "blur",
           },
         ],
-        level: [
+        lvl: [
           {
             required: true,
             message: "pendidikan required",

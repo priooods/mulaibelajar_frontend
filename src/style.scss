@@ -65,13 +65,16 @@ $indigo-500: #6366F1;
 body{
     overflow: overlay;
 }
+.bg-section{
+    background: $bg-white;
+}
 ::-webkit-scrollbar{
-    width: 4px;
+    width: 8px;
     background: transparent;
-    border-radius: 50%;
 }
 ::-webkit-scrollbar-thumb{
-    background: #F59F2C;
+    background: #ffc288;
+    border-radius: 50px;
 }
 a:hover{ color: $orange }
 a.active{ color: $indigo-600; }

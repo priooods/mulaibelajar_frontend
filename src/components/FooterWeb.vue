@@ -12,10 +12,10 @@
                 <div class="">
                     <h5 class="text-sm md:text-base font-popbold mb-2">Kelas Mulai Belajar</h5>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Pemrograman</span></router-link>
+                        <router-link to="/kelas/soft-skill/ngoding"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Pemrograman</span></router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Penalaran</span></router-link>
+                        <router-link to="/kelas/soft-skill/nulis"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Penalaran</span></router-link>
                     </div>
                     <div class="mt-2">
                         <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Matematika</span></router-link>
@@ -54,7 +54,7 @@
                         <router-link to="/tentang" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">Tentang Kami</router-link>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/contact" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">We are Hiring</router-link>
+                        <a href="https://www.notion.so/Jam-Operasional-2648295ec0a74401a753c31a591bc592" target="_blank" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">Jam Operasional</a>
                     </div>
                     <div class="mt-2">
                         <router-link to="/privacypolicy" class="text-gray-700 hover:text-blue-500 md:text-md text-sm font-popmed">Privacy & Policy</router-link>
