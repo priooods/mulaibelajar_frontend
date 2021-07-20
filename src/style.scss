@@ -2,7 +2,7 @@ $orange-bold: #ff6701;
 $orange: #fea82f;
 $orange-low: #ffc288;
 $orange-verylow: #fcecdd;
-$bg-white: #F4F7FC;
+$bg-white: #fff;
 $text-light: #374151;
 $bg-dark: #111827;
 $bg-dark-content: #192130;
@@ -69,11 +69,11 @@ body{
     background: $bg-white;
 }
 ::-webkit-scrollbar{
-    width: 8px;
+    width: 5px;
     background: transparent;
 }
 ::-webkit-scrollbar-thumb{
-    background: #ffc288;
+    background: #fea82f;
     border-radius: 50px;
 }
 a:hover{ color: $orange }

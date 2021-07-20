@@ -113,9 +113,9 @@
               </div>
               <h3 class="font-popbold mt-3 text-xl text-blue-500">{{item.title}}</h3>
               <h4 class="font-popbold md:mt-3 mt-2 text-lg">{{item.name}}</h4>
-              <p class="md:mt-3 mt-2 font-popmed text-xs">{{item.desc}}</p>
+              <p class="md:mt-3 mt-2 font-popmed text-xs line-clamp-4">{{item.desc}}</p>
               <div class="mt-8">
-                <div class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
+                <div @click="findpel(item)" class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
                   <p>Mulai Belajar</p>
                 </div>
               </div>
@@ -194,7 +194,7 @@ export default {
           title: 'Mulai Nulis',
           name: 'Penalaran',
           code: 'soft-skill/nulis',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Siapa yang hobinya mecahin masalah? Ngaku aja, gais. Buat yang hobi mecahin masalah, tenang. Aku kasih solusinya oke ? Jadi tuh mulaibelajar.online nyediain tempat buat kalian-kalian yang hobi mikir. Ya w'
         }
       ],
       listReview: [
@@ -221,32 +221,36 @@ export default {
         { 
           title: 'Mulai Berhitung',
           name: 'Matematika',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Siapa yang sering disuruh mama belanja di warung? Uang kembaliannya aman kan? Aman dong. Biar ngga bingung-bingung ngitung uang kembalian, di mulaibelajar.online nyediain kelas MTK yang cocok sama level kelas kamu'
         },
         { 
           title: 'Mulai Menjelajah',
           name: 'Biologi',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Cita-cita jadi Dokter udah sering kita denger. Nah, di sini kalian bakal belajar Biologi lebih mendalam kayak penyakit-penyakit, cara pencegahannya, dan tentunya makanan bergizi'
         },
         { 
           title: 'Mulai Explorasi',
           name: 'Kimia',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Paling enak tuh eksperimen di Laboraturium ngga sih? Enakk banget soalnya belajar di luar kelas. Ngga kok bercanda. Di mulaibelajar.online, kalian yang bingung sama rumus-rumus Kimia tenang.'
         },
         { 
           title: 'Mulai Meneliti',
           name: 'Fisika',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          desc: 'Berapa kecepatan apel yang jatoh dari pohon? Bukan, ini bukan pertanyaan beneran. Biar kalian bingung aja. Kalian pasti banyak yang bertanya-tanya, perlu ngga sih kak, ngitung pake rumus Fisika?'
         },
         { 
-          title: 'Mulai Bersastra',
-          name: 'B. Indonesia',
-          desc: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since th'
+          title: 'Mulai Ngobrol',
+          name: 'B. Inggris',
+          desc: 'Di Mulai Belajar, kalian bakalan belajar banyak hal tentang Bahasa Inggris, yang tadinya ngga suka jadi suka, yang anti Bahasa Inggris jadi ketagihan. Kan keren ya, abis belajar bareng di sini'
         },
       ]
     }
   },
   methods: {
+    findpel(item){
+      this.$store.dispatch('pelajaran/FindPel', item.name);
+      return this.$router.push({ path: '/kelas/akademik', meta: { metas: item.name } });
+    },
     typeit(){
       new TypeIt("#type", {
         speed: 150,
@@ -285,13 +289,13 @@ export default {
     background-color: #F86231;
   }
   .tops svg{
-    color: #F4F7FC;
+    color: #fff;
   }
   .mid-svg .top-svg{
-    background: #F4F7FC;
+    background: #fff;
   }
   .whatsapp{ background: #62D843; }
-  .mid-svg .bot-svg{ color: #F4F7FC; }
+  .mid-svg .bot-svg{ color: #fff; }
   .float{
     animation: float 6s ease-in-out infinite;
   }

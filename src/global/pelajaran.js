@@ -41,7 +41,7 @@ export default {
         { active: 1, name: "SD" },
         { active: 2, name: "SMP" },
         { active: 3, name: "SMA" },
-        { active: 4, name: "Intensif" },
+        // { active: 4, name: "Intensif" },
       ],
       pelajaranall: [
         {

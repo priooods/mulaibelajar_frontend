@@ -1,17 +1,23 @@
 <template>
   <div class="navigasi">
-        <div class="w-full absolute z-10">
-            <div class="flex justify-start md:px-0 px-3 md:py-0 py-2 container mx-auto">
-                <router-link to="/" exact class="h-16 w-20 md:w-20 md:h-16 mr-auto">
-                    <img src="../assets/image/logos.png" alt="logo">
+        <div 
+            :class="$route.path == '/kelas/soft-skill/ngoding' || $route.path == '/kelas/akademik' ? 'border-b bg-white' 
+            : $route.name == 'Home' ? 'bg-blue-500 border-none' : $route.path == '/kelas' || $route.path == '/konsultasi' ? ' absolute z-20 top-0 left-0' : 'border-none'" 
+            class="w-full">
+            <div class="flex justify-start md:px-0 px-3 md:py-0 py-2">
+                <router-link to="/" exact class="mr-auto md:ml-10">
+                    <img src="../assets/image/logos.png" alt="logo" class="md:block hidden h-16 w-20 md:w-20 md:h-16">
+                    <h2 :class="$route.name == 'Home' ? 'text-white' : 'text-blue-500'" class="md:hidden block font-popbold text-xl py-1.5">Mulai Belajar</h2>
                 </router-link>
-                <div class="md:flex my-auto hidden">
+                <div class="md:flex my-auto hidden" :class="$route.path == '/pembayaran/Paket' || $route.path == '/pembayaran/Parsial' ? 'mr-20' : ''">
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/kelas" class="text-base font-popbold md:ml-10 cursor-pointer">Kelas</router-link>
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/biaya" class="text-base font-popbold md:ml-10 cursor-pointer">Biaya Belajar</router-link>
                     <router-link :class="$route.name == 'Home' ? 'text-white hover:text-yellow-400' : 'text-gray-600 hover:text-blue-500'" to="/konsultasi" class="text-base font-popbold md:ml-10 cursor-pointer">Konsultasi</router-link>
                 </div>
-                <div v-if="!$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" class="md:ml-8 px-4 py-1 my-auto h-full font-bold rounded-lg cursor-pointer bg-yellow-500"><router-link to="/register"><p class="text-white">Masuk</p></router-link></div>
-                <Poptip v-if="$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" placement="bottom-end" class="my-auto md:ml-8 ml-auto">
+                <router-link class="md:flex hidden md:ml-8 px-4 items-center rounded-bl-sm font-bold cursor-pointer" :class="$route.name == 'Home' ? 'bg-gray-50' : 'bg-blue-500'" to="/register" v-if="!$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'">
+                    <p class="inline-flex text-md font-popbold" :class="$route.name == 'Home' ? 'text-blue-500' : 'text-white'"><span class="my-auto mr-0.5">Daftar account </span> <Icon type="ios-arrow-round-forward" size="30" class="my-auto"/></p>
+                </router-link>
+                <Poptip v-if="$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" placement="bottom-end" class="my-auto md:ml-8 md:mr-10 ml-auto md:block hidden">
                     <img src="../assets/image/account.svg" alt="profile" class="cursor-pointer w-7 h-7">
                     <ul slot="content" class="text-gray-700 py-1">
                         <li class="text-xs font-popsembold"><p>Halo, {{$store.state.users.users ? $store.state.users.users.username : ''}}</p></li>
@@ -26,7 +32,15 @@
         <div class="min-h-screen bg-white md:hidden fixed top-0 z-50 -left-full w-full layer-menu bg-nav bg-menu">
             <div class="text-xs mt-3 ml-3 menu-mobile">
                 <div class="flex justify-end mr-5 mb-5">
-                    <v-icon name="times" class="cursor-pointer icons"/>
+                    <div v-if="!$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" class="block md:hidden md:ml-8 px-4 py-1 my-auto h-full font-bold rounded-lg cursor-pointer bg-yellow-500"><router-link to="/register"><p class="text-white">Masuk</p></router-link></div>
+                    <Poptip v-if="$cookies.get('_bsf') && $route.name != 'Pembayaran' && $route.name != 'Confirmasi'" placement="bottom-end" class="block md:hidden my-auto md:ml-8 ml-auto">
+                        <img src="../assets/image/account.svg" alt="profile" class="cursor-pointer w-7 h-7">
+                        <ul slot="content" class="text-gray-700 py-1">
+                            <li class="text-xs font-popsembold"><p>Halo, {{$store.state.users.users ? $store.state.users.users.username : ''}}</p></li>
+                            <li class="text-xs font-popsembold mt-2 inline-flex"><p class="cursor-pointer hover:text-blue-500" @click="Logout">Keluar</p></li>
+                        </ul>
+                    </Poptip>
+                    <v-icon name="times" class="cursor-pointer icons my-auto ml-4"/>
                 </div>
                 <router-link to="/" class="closed text-gray-700 flex" exact>
                     <p class="font-popbold text-3xl my-auto">Home</p>

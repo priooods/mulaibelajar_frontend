@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
-Vue.use(VueRouter)
+import cookies from "vue-cookies";
+import store from "../store/index";
+Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
@@ -44,9 +45,16 @@ const routes = [
         component: () => import("../views/Konsultasi.vue"),
       },
       {
-        path: "/pembayaran",
+        path: "/pembayaran/:type?",
         name: "Pembayaran",
         component: () => import("../views/Pembayaran.vue"),
+        beforeEnter: (to, from, next) => {
+          if (cookies.get("_bsf") && store.state.pesanan.pesanan) {
+            next();
+          } else {
+            next({ path: from.path });
+          }
+        },
       },
     ],
   },
@@ -60,6 +68,13 @@ const routes = [
     path: "/register",
     name: "Register",
     component: () => import("../views/Register.vue"),
+    beforeEnter: (to, from, next) => {
+      if (!cookies.get("_bsf")) {
+        next();
+      } else {
+        next({ path: from.path });
+      }
+    },
   },
 ];
 

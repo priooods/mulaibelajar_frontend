@@ -1,93 +1,189 @@
 <template>
-  <div class="kelas-akademik">
-    <section>
-      <div class="w-full tops h-screen relative overflow-hidden">
-        <svg data-name="akademik" class="fill-current absolute bottom-0 right-0 left-0 w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
-        </svg>
-        <div class="grid md:grid-cols-2 grid-cols-1 gap-2 items-center md:px-0 px-3 h-full w-full container mx-auto">
-          <div class="text-gray-600">
-            <h2 class="font-popbold md:text-4xl text-2xl"><span class="text-blue-500">Mulai Belajar</span> banyak hal baru, Mulai dari sini aja!</h2>
-            <h5 class="font-popmed mt-4 md:text-base">Ayo kita belajar semua hal yang dibutuhkan untuk ulangan sekolah, <br class="md:block hidden"> AKM, UTBK, dan ujian apa aja 😁</h5>
-            <div class="flex w-full justify-start mt-2">
-              <h5 class="font-popbold mt-auto text-lg md:text-xl">#Mulai Belajar</h5>
-            </div>
-            <div class="md:hidden block mt-32 text-center">
-              <Icon type="ios-arrow-round-down" class="icons_arrow" :size="40" />
-            </div>
+  <div class="kelas-akademik relative bg-white w-full">
+    <section class="container mx-auto pt-5 md:px-32 px-3">
+      <h2 class="font-popsembold text-lg md:text-3xl">Belajar Hal Baru!</h2>
+      <div class="md:max-h-24 mt-5 w-full flex justify-end hover:border-blue-500 hover:bg-gray-400 border-2">
+        <input type="text" v-model="searching" class="md:py-3 py-1.5 rounded-sm font-popmed placeholder-gray-300 focus:outline-none focus:ring-0 px-3 w-full" placeholder="Cari Pelajaran..">
+        <div @click="search" class="px-5 cursor-pointer items-center font-popsembold bg-blue-500 border-blue-500 border-2 text-white flex">
+          <Icon type="md-search" size="23" class="my-auto mr-2"/>
+          <span>Cari</span>
+        </div>
+      </div>
+    </section>
+    <section class="z-10 top-0 sticky bg-white shadow-md">
+      <div class="container mx-auto md:px-32 mt-3">
+        <div class="mt-2 grid grid-cols-4 gap-0 font-popsembold md:text-base md:grid-cols-7">
+          <div @click="selectTab('')" class="justify-center text-sm flex cursor-pointer px-4 py-2 hover:bg-gray-200" :class="activeTab == '' ? 'border-b-4 border-blue-500' : 'border-b-0'">
+            <Icon type="ios-globe-outline" size="27" />
+            <span class="my-auto ml-3">All</span>
           </div>
-          <div class="md:block hidden">
-            <img src="../../assets/image/teachers.svg" class="h-5/6 w-5/6 ml-auto" alt="">
+          <div @click="selectTab('SD')" class="justify-center text-sm flex cursor-pointer px-4 py-2 hover:bg-gray-200" :class="activeTab == 'SD' ? 'border-b-4 border-blue-500' : 'border-b-0'">
+            <Icon type="md-star-outline" size="27" />
+            <span class="my-auto ml-3">SD</span>
+          </div>
+          <div @click="selectTab('SMP')" class="justify-center text-sm flex cursor-pointer px-4 py-2 hover:bg-gray-200" :class="activeTab == 'SMP' ? 'border-b-4 border-blue-500' : 'border-b-0'">
+            <Icon type="md-bulb" size="27" />
+            <span class="my-auto ml-3">SMP</span>
+          </div>
+          <div @click="selectTab('SMA')" class="justify-center text-sm flex cursor-pointer px-4 py-2 hover:bg-gray-200" :class="activeTab == 'SMA' ? 'border-b-4 border-blue-500' : 'border-b-0'">
+            <Icon type="ios-flag-outline" size="27" />
+            <span class="my-auto ml-3">SMA</span>
           </div>
         </div>
       </div>
     </section>
-    <section class="bg-section relative md:mb-16 mb-12 container mx-auto mt-20">
-      <carousel :margin="10" class="md:px-0 px-3" :stagePadding="0" :nav="false" 
-        :dots="false" :responsive="{0:{items:2, autoplay: true,autoplayHoverPause:true,},600:{items:9}}">
-        <div class="py-3" v-for="(item,i) in listkelas" v-bind:key="i">
-          <div @click="changetab(item.active)" :class="active == item.active ? 'bg-blue-500 text-white' : 'bg-white text-gray-700'" class="px-3 cursor-pointer border shadow-md py-2 rounded-lg hover:bg-blue-500 hover:text-white font-popbold text-center"><p>{{item.name}}</p></div>
-        </div>
-      </carousel>
-      <div>
-        <div class="container mx-auto">
-          <div v-for="(dts,index) in pelajaranall" v-bind:key="index">
-            <h3 class="mt-10 md:px-0 px-3 font-popbold md:text-base">{{dts.title}}</h3>
-            <carousel v-if="dts.listPelajaran ? dts.listPelajaran.length > 0 : null" :margin="20" :stagePadding="0" :nav="false" 
-              :dots="true" :responsive="{0:{items:1, loop: true, autoplay: true, dots: false, autoplayHoverPause:true, stagePadding: 40},600:{items:5, dots:true}}">
-              <div class="pb-7 pt-4" v-for="(item,i) in dts.listPelajaran" v-bind:key="i">
-                <div class="rounded-xl border shadow-lg px-5 bg-white pb-7">
-                  <div :class="item.pplr == 'Popular' ? 'populer' : ''" class="rounded-b-lg inline-block text-white py-1 px-2">
-                    <p class="mr-auto text-xs font-popmed">Popular</p>
-                  </div>
-                  <h3 class="font-popbold mt-3 text-xl text-blue-500">{{item.nick}}</h3>
-                  <p class="my-1 px-3 py-1 rounded-lg text-start font-popmed text-white text-xs inline-flex bg-yellow-400">{{item.kelas ? item.kelas.kls + ' '+ item.kelas.tgkt : ''}}</p>
-                  <h4 class="font-popbold md:mt-3 mt-2 text-lg">{{item.titl}}</h4>
-                  <p class="md:mt-3 mt-2 line-clamp-3 font-popmed text-xs">{{item.desc}}</p>
-                  <div class="my-4" v-if="item.harga">
-                    <p class="text-sm text-gray-600 font-popbold line-through">{{item.harga.prcd | currency('Rp. ') }}</p>
-                    <p class="text-xs font-popbold bg-red-500 text-white rounded-lg px-3 py-1 my-2 inline-flex">Subsidi {{item.harga.dsc | currency('Rp. ') }}</p>
-                    <p class="text-base font-popbold">{{item.harga.prc | currency('Rp. ') }} /Bulan</p>
-                  </div>
-                  <div class="mt-8">
-                    <div @click="gotonew(item)" class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-sm font-popbold text-center py-1.5">
-                      <p>Mulai Belajar</p>
-                    </div>
+    <section class="min-h-screen pt-6 bg-white">
+      <div class="container mx-auto md:px-32 px-3">
+        <div class="paket mt-10" v-if="activeTab == ''">
+          <div class="flex justify-start mb-6">
+            <div class="inline-flex mr-auto">
+              <Icon type="md-trending-up" size="21" class=" rounded-full p-3 bg-blue-50 text-blue-500"/>
+              <span class="ml-3 my-auto font-popsembold text-base">Paket Belajar</span>
+            </div>
+            <!-- <div class="inline-flex py-1 px-2 hover:bg-gray-100 cursor-pointer">
+              <span class="mr-2 my-auto font-popsembold text-xs">Lihat Semua</span>
+              <Icon type="md-arrow-round-forward" size="17" class=" my-auto text-indigo-500"/>
+            </div> -->
+          </div>
+          <div class="grid mt-6 grid-cols-1 md:grid-cols-3 gap-6">
+            <div v-for="(item,i) in listPaket" v-bind:key="i">
+              <div class="hover:shadow-lg p-4 bg-paket text-white border rounded-md transisi transform hover:-translate-y-1">
+                <div class="mb-3 h-32 w-full" v-if="item.img">
+                  <img class="w-full h-full" :src="'https://mulaibelajar.online/mulaibelajar_backend/public/file/' + item.img" alt="">
+                </div>
+                <p class="font-popmed text-sm"><span class=" rounded-md py-0.5 text-xs font-poplight mr-4 px-2 bg-red-500">{{item.pplr}}</span> {{item.nme}}</p>
+                <p class="mt-4 font-popmed text-xl">{{item.kelas.tgkt}} {{item.jrs}}</p>
+                <span class="mt-4 mb-10 line-clamp-3 text-xs font-popmed">{{item.dsc}}</span>
+                <span class=" font-poplight text-xs">Semua pelajaran :</span>
+                <div class="my-auto mt-1 mr-auto" v-for="(its,ind) in item.pelajaran" :key="ind">
+                  <p class="font-popmed inline-flex w-full"><span class="p-1 bg-indigo-500 h-full my-auto rounded-full mr-2"></span> {{its.titl}}</p>
+                </div>
+                <p class="mt-8 font-popbold text-base mr-auto">{{item.prc ? item.prc : 0 | currency('Rp. ')}} / Bulan</p>
+                  
+                <div class="mt-6 flex justify-end">
+                  <div @click="gotopaket(item)" class="p-2 text-sm cursor-pointer font-popsembold flex justify-center beli-paket">
+                    <span>Belajar</span>
+                    <Icon type="md-arrow-round-forward" size="15" class=" my-auto ml-3" />
                   </div>
                 </div>
               </div>
-            </carousel>
-            <div v-else class="my-4">
-              <p class=" font-popmed">Belum ada kelas yang di buka 🥺</p>
+            </div>
+          </div>
+        </div>
+        <div class="plejaran mt-14">
+          <div v-if="activeTab == ''" class="flex justify-start mb-6">
+            <Icon type="md-book" size="21" class=" rounded-full p-3 bg-blue-50 text-blue-500"/>
+            <span class="ml-3 my-auto font-popsembold text-base">Semua Pelajaran</span>
+          </div>
+          <div v-if="listPelajaran" class="grid mt-6 grid-cols-1 md:grid-cols-3 gap-8">
+            <div v-for="(item,i) in listPelajaran" v-bind:key="i">
+              <div class="hover:shadow-lg p-4 border rounded-md transisi transform hover:-translate-y-1">
+                <div class="mb-3 h-32 w-full" v-if="item.img">
+                  <img class="w-full h-full" :src="'https://mulaibelajar.online/mulaibelajar_backend/public/file/' + item.img" alt="">
+                </div>
+                <p class="font-popmed text-sm">{{item.nick}}</p>
+                <p class="mt-4 font-popmed text-xl">{{item.titl}}</p>
+                <span class="mt-4 line-clamp-3 text-xs font-popmed">{{item.desc}}</span>
+                <p class="mt-4 font-popbold text-base mr-auto">{{item.harga ? item.harga.prc : 0 | currency('Rp. ')}} / Bulan</p>
+                <div class="mt-6 flex justify-end">
+                  <div class="my-auto mr-auto">
+                    <div class="flex">
+                      <span class="p-1 bg-indigo-500 h-full rounded-full"></span>
+                      <span class=" w-1 h-0.5 my-auto" :class="item.kelas.tgkt == 'SMP' || item.kelas.tgkt == 'SMA' ? 'bg-indigo-500' : 'bg-gray-300'"></span>
+                      <span class="p-1 h-full rounded-full" :class="item.kelas.tgkt == 'SMP'|| item.kelas.tgkt == 'SMA' ? 'bg-indigo-500' : 'bg-gray-300'"></span>
+                      <span class=" w-1 h-0.5 my-auto" :class="item.kelas.tgkt == 'SMA' ? 'bg-indigo-500' : 'bg-gray-300'"></span>
+                      <span class="p-1 h-full rounded-full" :class="item.kelas.tgkt == 'SMA' ? 'bg-indigo-500' : 'bg-gray-300'"></span>
+                    </div>
+                    <span class="font-popmed text-xs">{{item.kelas.kls}}  {{item.kelas.tgkt}}</span>
+                  </div>
+                  <div @click="gotonew(item)" class="p-2 border border-gray-300 text-gray-700 text-sm cursor-pointer font-popsembold hover:border-gray-800 flex justify-center hover:bg-gray-50">
+                    <span>Belajar</span>
+                    <Icon type="md-arrow-round-forward" size="15" class=" my-auto ml-3" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-if="listPelajaran.length == 0" class="flex justify-center items-center">
+            <div class="h-full w-full text-center">
+              <img src="../../assets/image/astronot.svg" alt="astonot" class="w-5/12 h-5/12 mx-auto">
+              <h6 class=" mt-8 font-popbold text-xl">Pelajaran {{this.searching}} tidak ditemukan <br> untuk tingkat {{this.activeTab}}</h6>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <FooterWeb></FooterWeb>
+    <FooterWeb class="mt-32"></FooterWeb>
   </div>
 </template>
 
 <script>
 import FooterWeb from '../FooterWeb.vue';
 import Vue2Filters from 'vue2-filters';
-import carousel from 'vue-owl-carousel';
 import global from '../../global/pelajaran';
 export default {
   name: 'KelasAkademik',
+  components: { FooterWeb },
   mixins: [Vue2Filters.mixin, global],
-  components: { FooterWeb,carousel },
-  mounted() {
-    this.$store.dispatch('pelajaran/FindType','akademik');
+  data() {
+    return {
+      activeTab: '',
+      searching: '',
+      listPaket: this.$store.state.pelajaran.paket,
+      listPelajaran: this.$store.state.pelajaran.pelajaran
+    }
   },
-  computed: {
+  created() {
+    // console.log(this.$route);
+    if(this.$route.meta.metas){
+      // console.log('test');
+      this.listPelajaran = this.$store.state.pelajaran.pelajaran
+    } else {
+      this.$store.dispatch('pelajaran/paketall');
+      this.$store.dispatch('pelajaran/FindType','akademik');
+    }
   },
+  // mounted() {
+  //   this.$store.dispatch('pelajaran/paketall');
+  //   this.$store.dispatch('pelajaran/FindType','akademik');
+  // },
   methods: {
+    search(){
+      let val = this.searching.toLowerCase().trim();
+      this.listPelajaran = this.$store.state.pelajaran.pelajaran.filter(el => {
+        return el.kelas.tgkt.toLowerCase().indexOf(this.activeTab.toLowerCase().trim()) > -1 
+        && el.titl.toLowerCase().indexOf(val) > -1
+      });
+      return window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    selectTab(find){
+      switch (find) {
+        case '':
+          this.listPelajaran = this.$store.state.pelajaran.pelajaran;
+          break;
+        case 'SD':
+        case 'SMP':
+        case 'SMA':
+          this.listPelajaran = this.$store.state.pelajaran.pelajaran.filter(el => {
+            return el.kelas.tgkt == find
+          });
+          break;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      this.searching = '';
+      return this.activeTab = find;
+    },
+    gotopaket(item){
+      if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) 
+       return this.$router.push({ path: "/register" }, () => {});
+      this.$store.dispatch('pesanan/Paket', item.id);
+      return this.$router.push({ path: "/pembayaran/Paket" }, () => {});
+    },
     gotonew(item){
       if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) 
        return this.$router.push({ path: "/register" }, () => {});
       this.$store.dispatch('pesanan/Parsial', item.id);
-      return this.$router.push({ path: "/pembayaran" }, () => {});
+      return this.$router.push({ path: "/pembayaran/Parsial" }, () => {});
     }
   },
 }
@@ -95,26 +191,16 @@ export default {
 
 <style lang="scss">
 .kelas-akademik{
-  .populer{
-    background-color: #F86231;
+  .menus{
+    background: #F4F7FC;
   }
-  .tops{ background: white; }
-  .tops svg{
-    color: #F4F7FC;
-    background: white;
+  .transisi{
+    transition-duration: 0.7s;
   }
-  .icons_arrow{
-    animation: float 3s ease-in-out infinite;
-  }
-  @keyframes float {
-    0% {
-      transform: translatey(0px);
-    }
-    50% {
-      transform: translatey(-20px);
-    }
-    100% {
-      transform: translatey(0px);
+  .bg-paket{
+    background: #202033;
+    :hover{
+      .beli-paket{ background: #36365283; }
     }
   }
 }

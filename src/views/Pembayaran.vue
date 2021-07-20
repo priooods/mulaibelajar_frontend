@@ -6,12 +6,21 @@
                 <p class="mt-2 font-popmed md:text-base text-sm">Belajar sekarang juga bareng di Kelas Premium <br> dan tingkatkan pengetahuan kamu</p>
             </div>
             <div class="md:flex md:mt-24 mt-20 md:px-0 px-3 justify-center">
-                <div class="md:w-3/12 h-full bg-white rounded-lg p-6">
-                    <h3 class="font-popbold md:text-xl text-base text-blue-500">{{$store.state.pesanan.pesanan.nick}}</h3>
-                    <h4 class="font-popbold text-sm md:text-base">{{$store.state.pesanan.pesanan.titl}}</h4>
-                    <p class="my-1 px-3 py-0.5 rounded-lg text-start font-poplight text-white text-xs inline-flex bg-yellow-400">{{$store.state.pesanan.pesanan.kelas ? $store.state.pesanan.pesanan.kelas.kls + ' '+ $store.state.pesanan.pesanan.kelas.tgkt : ''}}</p>
-                    <p class="md:mt-3 mt-2 font-popmed text-xs">{{$store.state.pesanan.pesanan.desc}}</p>
-                    <div class="mt-5" v-if="$store.state.pesanan.pesanan.silabus">
+                <div class="md:w-3/12 h-full pel shadow-md rounded-lg p-6">
+                    <h3 class="font-popbold md:text-md text-sm text-red-400" v-if="$route.params.type == 'Parsial'">{{ $store.state.pesanan.pesanan.nick}}</h3>
+                    <h4 class="font-popbold mt-2 text-white text-base md:text-xl">{{$route.params.type == 'Parsial' ? $store.state.pesanan.pesanan.titl :  $store.state.pesanan.paket.nme}}</h4>
+                    <p class="mt-4">
+                        <span class="px-3 py-0.5 rounded-lg text-start font-popbold text-blue-500 text-xs inline-flex bg-blue-50">{{ $route.params.type == 'Paket' ? $store.state.pesanan.paket.jrs : $store.state.pesanan.pesanan.kelas ? $store.state.pesanan.pesanan.kelas.kls + ' '+ $store.state.pesanan.pesanan.kelas.tgkt : ''}}</span>
+                        <span v-if="$route.params.type == 'Paket'" class="px-3 py-0.5 rounded-lg text-start font-popbold text-blue-500 text-xs inline-flex bg-blue-50 ml-3">{{$store.state.pesanan.paket.kelas.tgkt}}</span>
+                    </p>
+                    <p class="md:mt-4 mt-3 text-white font-popmed text-xs">{{$route.params.type == 'Paket' ? $store.state.pesanan.paket.dsc : $store.state.pesanan.pesanan.desc}}</p>
+                    <div class="mt-5 text-gray-100" v-if="$route.params.type == 'Paket'">
+                        <p class="text-xs font-popmed mb-3">Semua mata pelajaran :</p>
+                        <ol v-for="(item,i) in $store.state.pesanan.paket.pelajaran" v-bind:key="i" class="font-popmed text-sm list-inside list-disc">
+                            <li>{{item.titl}}</li>
+                        </ol>
+                    </div>
+                    <div class="mt-5 text-white" v-if="$route.params.type == 'Parsial' && $store.state.pesanan.pesanan.silabus.length > 0">
                         <p class="text-xs font-popmed mb-3">Lihat semua silabus belajar <span v-if="!selengkapnya" @click="selengkapnya = !selengkapnya" class="text-xs text-blue-500 cursor-pointer"> Selengkapnya...</span></p>
                         <div v-if="selengkapnya">
                             <ol v-for="(item,i) in $store.state.pesanan.pesanan.silabus" v-bind:key="i" class="list-inside">
@@ -30,18 +39,18 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:ml-8 md:mt-0 mt-7 md:w-4/12 h-full">
+                <div class="md:ml-8 md:mt-0 mt-7 md:w-4/12 shadow-md h-full">
                     <div class="bg-white rounded-lg p-6">
                         <h4 class="font-popbold text-sm md:text-base mb-3">Main Details</h4>
-                        <div v-if="$store.state.pesanan.pesanan.type == 'akademik'">
+                        <div v-if="$route.params.type == 'Paket' || $route.params.type == 'Parsial'">
                             <ul class="list-none">
                                 <li class="flex justify-start mt-1.5 md:text-sm text-xs">
                                     <p class="mr-auto font-popsembold">Akses Pelajaran</p>
-                                    <p class="my-auto font-popmed">1 Pelajaran</p>
+                                    <p class="my-auto font-popmed">{{$route.params.type == 'Paket' ? '3 Pelajaran' : '1 Pelajaran'}}</p>
                                 </li>
                                 <li class="flex justify-start mt-1.5 md:text-sm text-xs">
                                     <p class="mr-auto font-popsembold">Pertemuan</p>
-                                    <p class="my-auto font-popmed">{{$store.state.pesanan.pesanan.silabus.length}}x Pertemuan</p>
+                                    <p class="my-auto font-popmed">8x Pertemuan</p>
                                 </li>
                                 <li class="flex justify-start mt-1.5 md:text-sm text-xs">
                                     <p class="mr-auto font-popsembold">Kelas</p>
@@ -52,16 +61,22 @@
                         <h4 class="font-popbold text-sm md:text-base mb-3 mt-10">Payment Details</h4>
                         <ul class="list-none">
                             <li class="flex justify-start mt-1.5 md:text-sm text-xs">
-                                <p class="mr-auto font-popsembold">Harga Kelas</p>
-                                <p class="my-auto font-popmed">{{$store.state.pesanan.pesanan.harga.prcd | currency('Rp. ')}}</p>
+                                <p class="mr-auto font-popsembold">{{$route.params.type == 'Paket' ? 'Harga Total Pelajaran' : 'Harga Kelas'}}</p>
+                                <p class="my-auto font-popmed">{{$route.params.type == 'Paket' 
+                                    ? $store.state.pesanan.paket.pelajaran[0].harga ? $store.state.pesanan.paket.pelajaran[0].harga.prc + 
+                                    $store.state.pesanan.paket.pelajaran[1].harga.prc + $store.state.pesanan.paket.pelajaran[2].harga.prc : 0
+                                    : $store.state.pesanan.pesanan.harga.prcd | currency('Rp. ')}}</p>
                             </li>
                             <li class="flex justify-start mt-1.5 md:text-sm text-xs">
                                 <p class="mr-auto font-popsembold">Subsidi</p>
-                                <p class="my-auto font-popmed text-red-500">- {{$store.state.pesanan.pesanan.harga.dsc | currency('Rp. ')}}</p>
+                                <p class="my-auto font-popmed text-red-500">- {{$route.params.type == 'Paket' ? 
+                                    $store.state.pesanan.paket.pelajaran[0].harga ? ($store.state.pesanan.paket.pelajaran[0].harga.prc + 
+                                    $store.state.pesanan.paket.pelajaran[1].harga.prc + $store.state.pesanan.paket.pelajaran[2].harga.prc) - $store.state.pesanan.paket.prc : 0
+                                    :$store.state.pesanan.pesanan.harga.dsc | currency('Rp. ')}}</p>
                             </li>
                             <li class="flex justify-start mt-1.5 md:text-sm text-xs">
                                 <p class="mr-auto font-popsembold">Total Transfer</p>
-                                <p class="my-auto text-base font-popbold">{{$store.state.pesanan.pesanan.harga.prc | currency('Rp. ')}}</p>
+                                <p class="my-auto text-base font-popbold">{{ $route.params.type == 'Paket' ? $store.state.pesanan.paket.prc : $store.state.pesanan.pesanan.harga.prc | currency('Rp. ')}}</p>
                             </li>
                         </ul>
                         <h4 class="font-popbold text-sm md:text-base mb-3 mt-10">Transfer Pembayaran</h4>
@@ -102,9 +117,15 @@
             </div>
             <div slot="footer" class="text-center">
                 <Button type="error" @click="showpop =!showpop">Cancel</Button>
-                <a class="w-full ml-4" :href="$router.resolve({path: '/confirmasi/' + $store.state.pesanan.pesanan.titl }).href">
-                    <Button type="success" 
-                        @click="konfirmasi($store.state.pesanan.pesanan)"
+                <a class="w-full ml-4" :href="$route.params.type == 'Paket' ? 
+                $router.resolve({path: '/confirmasi/' + $store.state.pesanan.paket.nme }).href
+                : $router.resolve({path: '/confirmasi/' + $store.state.pesanan.pesanan.titl }).href">
+                    <Button type="success" v-if="$route.params.type == 'Paket'"
+                        @click="konfirmasiPaket($store.state.pesanan.paket)"
+                        >Konfirmasi
+                    </Button>
+                    <Button type="success"  v-if="$route.params.type == 'Parsial'"
+                        @click="konfirmasiParsial($store.state.pesanan.pesanan)"
                         >Konfirmasi
                     </Button>
                 </a>
@@ -128,10 +149,17 @@ export default {
         }
     },
     methods: {
-        konfirmasi(values){
+        konfirmasiPaket(values){
+            return window.open("https://api.whatsapp.com/send?phone=6285925325096/&text=" 
+                + 'Halo, Saya ' + this.$store.state.users.users.flnm + '. Saya ingin melakukan konfirmasi pembayaran Paket '
+                +  values.nme + ' dengan code paket ' + values.cde
+                + '. Akses paket untuk ' + this.$store.state.users.users.eml
+                + '. Berikut saya lampirkan foto bukti pembayaran :' , '_blank');
+        },
+        konfirmasiParsial(values){
             return window.open("https://api.whatsapp.com/send?phone=6285925325096/&text=" 
                 + 'Halo, Saya ' + this.$store.state.users.users.flnm + '. Saya ingin melakukan konfirmasi pembayaran kelas '
-                + values.titl + ' dengan code pelajaran ' + values.cde
+                +  values.titl + ' dengan code pelajaran ' + values.cde
                 + '. Akses kelas untuk ' + this.$store.state.users.users.eml
                 + '. Berikut saya lampirkan foto bukti pembayaran :' , '_blank');
         }
@@ -140,5 +168,7 @@ export default {
 </script>
 
 <style>
-
+.pel{
+    background: #202033;
+}
 </style>
