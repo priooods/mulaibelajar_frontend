@@ -133,20 +133,6 @@ export default {
       listPelajaran: this.$store.state.pelajaran.pelajaran
     }
   },
-  created() {
-    // console.log(this.$route);
-    if(this.$route.meta.metas){
-      // console.log('test');
-      this.listPelajaran = this.$store.state.pelajaran.pelajaran
-    } else {
-      this.$store.dispatch('pelajaran/paketall');
-      this.$store.dispatch('pelajaran/FindType','akademik');
-    }
-  },
-  // mounted() {
-  //   this.$store.dispatch('pelajaran/paketall');
-  //   this.$store.dispatch('pelajaran/FindType','akademik');
-  // },
   methods: {
     search(){
       let val = this.searching.toLowerCase().trim();

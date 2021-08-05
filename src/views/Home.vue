@@ -123,7 +123,9 @@
           </div>
         </carousel>
         <div class="mt-6 text-center">
-          <router-link to="/kelas/akademik"><p class="font-popsembold text-gray-700 hover:text-blue-500 inline-flex text-sm cursor-pointer">Lihat Lainnya</p></router-link>
+          <div @click="openPage('/kelas/akademik','akademik')">
+            <p class="font-popsembold text-gray-700 hover:text-blue-500 inline-flex text-sm cursor-pointer">Lihat Lainnya</p>
+          </div>
         </div>
       </div>
     </section>
@@ -248,8 +250,18 @@ export default {
   },
   methods: {
     findpel(item){
-      this.$store.dispatch('pelajaran/FindPel', item.name);
-      return this.$router.push({ path: '/kelas/akademik', meta: { metas: item.name } });
+      this.$store.dispatch('pelajaran/FindPel', item.name).catch(() => {
+        this.$Message.error("Failure Request");
+      }).finally(() => {
+        return this.$router.push({ path: '/kelas/akademik', meta: { metas: item.name } });
+      });
+    },
+    openPage(end, patch){
+      this.$store.dispatch('pelajaran/paketall')
+      .catch(() => { this.$Message.error("Server Erorr !"); });
+      this.$store.dispatch('pelajaran/FindType',patch).then(() => {})
+      .catch(() => { this.$Message.error("Server Erorr !"); })
+      .finally(() => { this.$router.push({ path: end }) });
     },
     typeit(){
       new TypeIt("#type", {
@@ -270,9 +282,6 @@ export default {
       .type('Biologi', { delay: 1500 })
       .delete(-7, { speed: 200, delay: 1000 })
       .go();
-    },
-    testing(){
-      console.log('click');
     },
     getLinkWhastapp(number) {
       var url = 'https://api.whatsapp.com/send?phone=' 

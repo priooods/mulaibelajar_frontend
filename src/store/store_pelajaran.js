@@ -8,17 +8,27 @@ export default {
   },
   actions: {
     FindType({ commit }, type) {
-      Pelajaran.findtype(type).then((result) => {
-        if (result.data.error_code == 0)
-          return commit("pelajaran", result.data.data);
-        else return ViewUI.Message.error("Failure Request");
+      return new Promise((res, reject) => {
+        Pelajaran.findtype(type)
+          .then((result) => {
+            commit("pelajaran", result.data.data);
+            res(result);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
     FindPel({ commit }, titl) {
-      Pelajaran.findpel(titl).then((result) => {
-        if (result.data.error_code == 0)
-          return commit("pelajaran", result.data.data);
-        else return ViewUI.Message.error("Failure Request");
+      return new Promise((resolve, reject) => {
+        Pelajaran.findpel(titl)
+          .then((result) => {
+            commit("pelajaran", result.data.data);
+            return resolve(result);
+          })
+          .catch((error) => {
+            reject(error);
+          });
       });
     },
     all({ commit }) {
@@ -32,16 +42,17 @@ export default {
           return ViewUI.Message.error("Failure Request");
         });
     },
-    paketall({ commit }) {
-      Pelajaran.paketall()
-        .then((result) => {
-          if (result.data.error_code == 0)
-            return commit("paket", result.data.data);
-          else return ViewUI.Message.error("Failure Request");
-        })
-        .catch(() => {
-          return ViewUI.Message.error("Failure Request");
-        });
+    paketall(context) {
+      return new Promise((resolve, reject) => {
+        Pelajaran.paketall()
+          .then((result) => {
+            context.commit("paket", result.data.data);
+            return resolve(result);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
     },
   },
   mutations: {

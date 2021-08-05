@@ -1,6 +1,7 @@
 <template>
   <div class="kelas">
-    <div v-if="$route.params.type == null &&$route.params.code == null" class="h-screen max-h-screen flex justify-center items-center">
+    <div v-if="$route.params.type == null &&$route.params.code == null" 
+    class="h-screen max-h-screen flex justify-center items-center">
       <div class="w-full">
         <h4 class="text-center mb-7 font-popbold text-xl">Pilih Kelas Yang Ingin Kamu Pelajari</h4>
         <div class="md:flex grid-cols-1 grid gap-5 md:px-0 px-3 justify-center">
@@ -48,19 +49,11 @@ export default {
   name: 'Kelas',
   methods: {
     openPage(end, patch){
-      switch (patch) {
-        case 'nulis':
-          this.$store.dispatch('pelajaran/FindType','nulis');
-          break;
-        case 'ngoding':
-          this.$store.dispatch('pelajaran/FindType','ngoding');
-          break;
-        case 'akedemik':
-          this.$store.dispatch('pelajaran/paketall');
-          this.$store.dispatch('pelajaran/FindType','akademik');
-          break;
-      }
-      this.$router.push({ path: end });
+      this.$store.dispatch('pelajaran/paketall')
+      .catch(() => { this.$Message.error("Server Erorr !"); });
+      this.$store.dispatch('pelajaran/FindType',patch).then(() => {})
+      .catch(() => { this.$Message.error("Server Erorr !"); })
+      .finally(() => { this.$router.push({ path: end }) });
     }
   },
 }
