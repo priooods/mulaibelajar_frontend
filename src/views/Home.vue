@@ -84,11 +84,9 @@
                   <h6 class="font-popbold text-xl mt-5">{{item.name}}</h6>
                   <p class="font-popmed mt-2 line-clamp-4">{{item.desc}}</p>
                   <div class="mt-8">
-                    <router-link :to="'/kelas/'+ item.code">
-                      <div class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
-                        <p>Mulai Belajar</p>
-                      </div>
-                    </router-link>
+                    <div @click="findsoft(item)" class="rounded-2xl cursor-pointer hover:shadow-lg bg-blue-500 text-white text-base font-popbold text-center py-1.5">
+                      <p>Mulai Belajar</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -187,6 +185,7 @@ export default {
       listsofskill: [
         { 
           title: 'Mulai Ngoding',
+          type: 'ngoding',
           name: 'Pemrograman',
           code: 'soft-skill/ngoding',
           desc: 'Mulai dari sekarang kita akan bikin applikasi apa saja yang kamu mau. Mengekplore semua hal tentang dunia'
@@ -194,6 +193,7 @@ export default {
         },
         { 
           title: 'Mulai Nulis',
+          type: 'nulis',
           name: 'Penalaran',
           code: 'soft-skill/nulis',
           desc: 'Siapa yang hobinya mecahin masalah? Ngaku aja, gais. Buat yang hobi mecahin masalah, tenang. Aku kasih solusinya oke ? Jadi tuh mulaibelajar.online nyediain tempat buat kalian-kalian yang hobi mikir. Ya w'
@@ -250,18 +250,33 @@ export default {
   },
   methods: {
     findpel(item){
+      this.$Loading.start();
+      this.$store.dispatch('pelajaran/paketall')
+      .catch(() => { this.$Message.error("Server Erorr !"); });
       this.$store.dispatch('pelajaran/FindPel', item.name).catch(() => {
         this.$Message.error("Failure Request");
       }).finally(() => {
+        this.$Loading.finish();
         return this.$router.push({ path: '/kelas/akademik', meta: { metas: item.name } });
       });
     },
+    findsoft(item){
+      this.$Loading.start();
+      this.$store.dispatch('pelajaran/FindType',item.type).then(() => {})
+      .catch(() => { this.$Message.error("Server Erorr !"); })
+      .finally(() => { 
+        this.$Loading.finish();
+        this.$router.push({ path: '/kelas/' + item.code }) });
+    },
     openPage(end, patch){
+      this.$Loading.start();
       this.$store.dispatch('pelajaran/paketall')
       .catch(() => { this.$Message.error("Server Erorr !"); });
       this.$store.dispatch('pelajaran/FindType',patch).then(() => {})
       .catch(() => { this.$Message.error("Server Erorr !"); })
-      .finally(() => { this.$router.push({ path: end }) });
+      .finally(() => { 
+        this.$Loading.finish();
+        this.$router.push({ path: end }) });
     },
     typeit(){
       new TypeIt("#type", {

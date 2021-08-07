@@ -12,40 +12,40 @@
                 <div class="">
                     <h5 class="text-sm md:text-base font-popbold mb-2">Kelas Mulai Belajar</h5>
                     <div class="mt-2">
-                        <router-link to="/kelas/soft-skill/ngoding"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Pemrograman</span></router-link>
+                        <div @click="openPage('/kelas/soft-skill/ngoding','ngoding')"><span class="font-popmed cursor-pointer text-sm inline text-gray-700 hover:text-blue-500">Pemrograman</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/kelas/soft-skill/nulis"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Penalaran</span></router-link>
+                        <div @click="openPage('/kelas/soft-skill/nulis','nulis')"><span class="font-popmed cursor-pointer text-sm inline text-gray-700 hover:text-blue-500">Penalaran</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Matematika</span></router-link>
+                        <div @click="openPel('Matematika')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Matematika</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Biologi</span></router-link>
+                        <div @click="openPel('Biologi')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Biologi</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Fisika</span></router-link>
+                        <div @click="openPel('Fisika')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Fisika</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Kimia</span></router-link>
+                        <div @click="openPel('Kimia')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Kimia</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Ekonomi</span></router-link>
+                        <div @click="openPel('Ekonomi')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Ekonomi</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Indonesia</span></router-link>
+                        <div @click="openPel('Indonesia')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Indonesia</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Inggris</span></router-link>
+                        <div @click="openPel('Inggris')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Bahasa Inggris</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">Sejarah</span></router-link>
+                        <div @click="openPel('Sejarah')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">Sejarah</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPA</span></router-link>
+                        <div @click="openPel('IPA')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPA</span></div>
                     </div>
                     <div class="mt-2">
-                        <router-link to="/"><span class="font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPS</span></router-link>
+                        <div @click="openPel('IPS')"><span class="cursor-pointer font-popmed text-sm inline text-gray-700 hover:text-blue-500">IPS</span></div>
                     </div>
                 </div>
                 <div>
@@ -91,7 +91,30 @@
 
 <script>
 export default {
-    name: "FooterWeb"
+    name: "FooterWeb",
+    methods: {
+        openPage(end, patch){
+            this.$Loading.start();
+            this.$store.dispatch('pelajaran/paketall')
+            .catch(() => { this.$Message.error("Server Erorr !"); });
+            this.$store.dispatch('pelajaran/FindType',patch).then(() => {})
+            .catch(() => { this.$Message.error("Server Erorr !"); })
+            .finally(() => { 
+                this.$Loading.finish();
+                this.$router.push({ path: end }) });
+        },
+        openPel(item){
+            this.$Loading.start();
+            this.$store.dispatch('pelajaran/paketall')
+            .catch(() => { this.$Message.error("Server Erorr !"); });
+            this.$store.dispatch('pelajaran/FindPel', item).catch(() => {
+                this.$Message.error("Failure Request");
+            }).finally(() => {
+                this.$Loading.finish();
+                return this.$router.push({ path: '/kelas/akademik', meta: { metas: item } });
+            });
+        },
+    },
 }
 </script>
 

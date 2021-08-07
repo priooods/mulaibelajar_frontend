@@ -77,7 +77,7 @@
           </div>
           <div v-if="listPelajaran" class="grid mt-6 grid-cols-1 md:grid-cols-3 gap-8">
             <div v-for="(item,i) in listPelajaran" v-bind:key="i">
-              <div class="hover:shadow-lg p-4 border rounded-md transisi transform hover:-translate-y-1">
+              <div class="hover:shadow-lg p-4 border border-gray-600 rounded-md transisi transform hover:-translate-y-1">
                 <div class="mb-3 h-32 w-full" v-if="item.img">
                   <img class="w-full h-full" :src="'https://mulaibelajar.online/mulaibelajar_backend/public/file/' + item.img" alt="">
                 </div>
@@ -145,7 +145,11 @@ export default {
     selectTab(find){
       switch (find) {
         case '':
-          this.listPelajaran = this.$store.state.pelajaran.pelajaran;
+          this.$store.dispatch('pelajaran/FindType','akademik').then(() => {})
+            .catch(() => { this.$Message.error("Server Erorr !"); })
+            .finally(() => { 
+              this.listPelajaran = this.$store.state.pelajaran.pelajaran;
+          });
           break;
         case 'SD':
         case 'SMP':
@@ -160,16 +164,26 @@ export default {
       return this.activeTab = find;
     },
     gotopaket(item){
-      if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) 
-       return this.$router.push({ path: "/register" }, () => {});
-      this.$store.dispatch('pesanan/Paket', item.id);
-      return this.$router.push({ path: "/pembayaran/Paket" }, () => {});
+      this.$Loading.start();
+      if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) {
+        this.$Loading.finish();
+        return this.$router.push({ path: "/register" }, () => {});
+      }
+      this.$store.dispatch('pesanan/Paket', item.id).finally(() => {
+        this.$Loading.finish();
+        return this.$router.push({ path: "/pembayaran/Paket" }, () => {});
+      });
     },
     gotonew(item){
-      if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) 
-       return this.$router.push({ path: "/register" }, () => {});
-      this.$store.dispatch('pesanan/Parsial', item.id);
-      return this.$router.push({ path: "/pembayaran/Parsial" }, () => {});
+      this.$Loading.start();
+      if(!this.$cookies.get('_bsf') && !this.$store.state.users.users) {
+        this.$Loading.finish();
+        return this.$router.push({ path: "/register" }, () => {});
+      }
+      this.$store.dispatch('pesanan/Parsial', item.id).finally(() => {
+        this.$Loading.finish();
+        return this.$router.push({ path: "/pembayaran/Parsial" }, () => {});
+      });
     }
   },
 }

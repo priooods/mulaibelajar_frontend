@@ -38,22 +38,29 @@
     <div v-if="$route.params.type == 'soft-skill' && $route.params.code == 'ngoding'">
       <KelasCoding></KelasCoding>
     </div>
+    <div v-if="$route.params.type == 'soft-skill' && $route.params.code == 'nulis'">
+      <KelasNulis></KelasNulis>
+    </div>
   </div>
 </template>
 
 <script>
 import KelasAkademik from '../components/Kelas/KelasAkademik.vue';
 import KelasCoding from '../components/Kelas/KelasCoding.vue';
+import KelasNulis from '../components/Kelas/KelasNulis.vue';
 export default {
-  components: {KelasCoding,KelasAkademik},
+  components: {KelasCoding,KelasAkademik,KelasNulis},
   name: 'Kelas',
   methods: {
     openPage(end, patch){
+      this.$Loading.start();
       this.$store.dispatch('pelajaran/paketall')
       .catch(() => { this.$Message.error("Server Erorr !"); });
       this.$store.dispatch('pelajaran/FindType',patch).then(() => {})
       .catch(() => { this.$Message.error("Server Erorr !"); })
-      .finally(() => { this.$router.push({ path: end }) });
+      .finally(() => { 
+        this.$Loading.finish();
+        this.$router.push({ path: end }) });
     }
   },
 }

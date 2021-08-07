@@ -9,7 +9,10 @@
                 <div class="md:w-3/12 h-full pel shadow-md rounded-lg p-6">
                     <h3 class="font-popbold md:text-md text-sm text-red-400" v-if="$route.params.type == 'Parsial'">{{ $store.state.pesanan.pesanan.nick}}</h3>
                     <h4 class="font-popbold mt-2 text-white text-base md:text-xl">{{$route.params.type == 'Parsial' ? $store.state.pesanan.pesanan.titl :  $store.state.pesanan.paket.nme}}</h4>
-                    <p class="mt-4">
+                    <p v-if="$store.state.pesanan.pesanan.type == 'ngoding'" class="mt-4">
+                        <span class="px-3 py-0.5 rounded-lg text-start font-popbold text-blue-500 text-xs inline-flex bg-blue-50">{{ $store.state.pesanan.pesanan.lvl }}</span>
+                    </p>
+                    <p v-else class="mt-4">
                         <span class="px-3 py-0.5 rounded-lg text-start font-popbold text-blue-500 text-xs inline-flex bg-blue-50">{{ $route.params.type == 'Paket' ? $store.state.pesanan.paket.jrs : $store.state.pesanan.pesanan.kelas ? $store.state.pesanan.pesanan.kelas.kls + ' '+ $store.state.pesanan.pesanan.kelas.tgkt : ''}}</span>
                         <span v-if="$route.params.type == 'Paket'" class="px-3 py-0.5 rounded-lg text-start font-popbold text-blue-500 text-xs inline-flex bg-blue-50 ml-3">{{$store.state.pesanan.paket.kelas.tgkt}}</span>
                     </p>
@@ -147,6 +150,9 @@ export default {
             selengkapnya: false,
             showpop: false,
         }
+    },
+    mounted() {
+        console.log(this.$store.state.pesanan.pesanan)
     },
     methods: {
         konfirmasiPaket(values){

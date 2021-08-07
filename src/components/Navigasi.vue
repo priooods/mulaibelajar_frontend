@@ -2,7 +2,7 @@
   <div class="navigasi">
         <div 
             :class="$route.path == '/kelas/soft-skill/ngoding' || $route.path == '/kelas/akademik' ? 'border-b bg-white' 
-            : $route.name == 'Home' ? 'bg-blue-500 border-none' : $route.path == '/kelas' || $route.path == '/konsultasi' ? ' absolute z-20 top-0 left-0' : 'border-none'" 
+            : $route.name == 'Home' ? 'bg-blue-500 border-none' : $route.path == '/kelas/soft-skill/nulis' || $route.path == '/kelas' || $route.path == '/konsultasi' ? ' absolute z-20 top-0 left-0' : 'border-none'" 
             class="w-full">
             <div class="flex justify-start md:px-0 px-3 md:py-0 py-2">
                 <router-link to="/" exact class="mr-auto md:ml-10">

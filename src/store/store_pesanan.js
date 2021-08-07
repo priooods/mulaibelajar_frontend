@@ -7,15 +7,27 @@ export default {
   },
   actions: {
     Parsial({ commit }, id) {
-      Pesanan.findparsial(id).then((result) => {
-        if (result.data.error_code == 0)
-          return commit("pesanan", result.data.data);
-      });
+      return new Promise((res, rej) => {
+        Pesanan.findparsial(id)
+          .then((result) => {
+            if (result.data.error_code == 0) {
+              res(result);
+              return commit("pesanan", result.data.data);
+            }
+          })
+          .catch((err) => rej(err));
+      })
     },
     Paket({ commit }, id) {
-      Pesanan.findpaket(id).then((result) => {
-        if (result.data.error_code == 0)
-          return commit("paket", result.data.data);
+      return new Promise((res, rej) => {
+        Pesanan.findpaket(id)
+          .then((result) => {
+            if (result.data.error_code == 0) {
+              res(result);
+              return commit("paket", result.data.data);
+            }
+          })
+          .catch((err) => rej(err));
       });
     },
   },
