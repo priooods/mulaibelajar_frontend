@@ -1,0 +1,6 @@
+{
+  "appId": "com.mulaibelajar.app",
+  "appName": "mulaibelajar",
+  "webDir": "app",
+  "bundledWebRuntime": false
+}
